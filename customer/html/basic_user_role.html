@@ -1,0 +1,78 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 角色管理页面</span>
+</header>
+<div class="box mc_header">
+	角色管理
+</div>
+<div class="box h1x">
+	<p class="tip">角色编号：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w2x"/>
+	<p class="tip">角色名称：</p>
+	<input type="text" name="name" ng-model="Search.name" class="w2x"/>
+	<div class="btn" ng-click="Search={}">确认</div>
+	<div class="btn" ng-click="Search={}">重置</div>
+	<div class="btn" ng-click="Search={}">列出全部</div>
+	<div class="btn right" onclick="ow('w_edit');" ng-click="user={}">新增</div>
+</div>
+
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>序号</th>
+		<th>公司编号</th>
+		<th>角色编号</th>
+		<th>角色名称</th>
+		<th width="56px">状态</th>
+		<th width="300px">操作</th>
+	</tr>
+	<tr ng-repeat="item in UserAdmin.list |filter:{'cid':Search.cid,'name':Search.name}">
+		<td>{{item.id}}</td>
+		<td>{{item.oid}}</td>
+		<td>{{item.cid}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.state}}</td>
+		<td>
+			<div class="link" onclick="if(confirm('确认操作？'))$(this).parent().parent().remove()">删除</div>
+			<div class="link" ng-click="UserAdmin.edit($index,'w_edit')">修改</div>
+			<div class="link">模块授权</div>
+			<div class="link">角色授权</div>
+		</td>
+	</tr>
+</table>
+
+<div class="window" id="w_edit" onmouseenter="init_window()">
+    <header>
+        <p>编辑账号</p>
+        <button class="close_btn">×</button>
+    </header>
+    <div class="window_main" >
+	<form name="form_edit" ng-submit="FromUpdate(form_edit.$valid)">
+	<table class="no_table_border">
+	<tr>
+		<td class="text_align_right">*公司编号：</td>
+		<td>
+			<input type="text" name="oid" ng-model="user.oid"  value=""  required/>
+			<p class="tip c_error" ng-show="form_edit.oid.$invalid&&form_edit.oid.$dirty">不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*角色编号：</td>
+		<td>
+			<input type="text" name="cid" ng-model="user.cid"  value=""  required/>
+			<p class="tip c_error" ng-show="form_edit.cid.$invalid&&form_edit.cid.$dirty">不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*角色名称：</td>
+		<td>
+			<input type="text" name="name" ng-model="user.name"  value=""  required/>
+			<p class="tip c_error" ng-show="form_edit.name.$invalid&&form_edit.name.$dirty">不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" class="btn" ng-class="{active:form_edit.$valid}" value="提交"/></td>
+	</tr>
+	</table>
+	</form>
+    </div>
+</div>

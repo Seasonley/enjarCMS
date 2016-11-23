@@ -1,0 +1,37 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 充值报表</span>
+</header>
+<div class="box mc_header">
+	充值报表
+</div>
+<div class="box h1x">
+	<table class="no_table_border">
+		<tr>
+			<td>
+				<p class="tip">账户余额：1111111</p>
+			</td>
+		</tr>
+	</table>
+</div>
+
+<i class="line b_mca"></i>
+<div class="clear" style="height:20px;"></div>
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>日期</th>
+		<th>充值金额</th>
+		<th>消费金额</th>
+		<th>余额</th>
+	</tr>
+	<tr ng-repeat="item in Charge.list">
+		<td>{{item.time}}</td>
+		<td>{{item.in}}</td>
+		<td>{{item.out}}</td>
+		<td>{{item.surplus}}</td>
+	</tr>
+</table>
+
+
+
+
+

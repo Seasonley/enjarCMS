@@ -1,0 +1,256 @@
+<header class="topbar" style="z-index: 3;">
+	<div class="userimg right"></div>
+	<img src="../common/img/check_2.png" ui-sref="manage" style="float: right;margin-top: 10px;cursor: pointer;"/>
+</header>
+<ul class="nav" ng-init="show.menu=2">
+	<li ng-class="{active: show.menu==1}" ng-click="show.menu=1">云端雷达</li>
+	<li ng-class="{active: show.menu==2}" ng-click="show.menu=2">XPOS设置</li>
+	<li ng-class="{active: show.menu==3}" ng-click="show.menu=3">会员中心</li>
+	<li ng-class="{active: show.menu==4}" ng-click="show.menu=4">促销管理</li>
+	<li ng-class="{active: show.menu==5}" ng-click="show.menu=5">礼券管理</li>
+	<li ng-class="{active: show.menu==6}" ng-click="show.menu=6">O2O</li>
+	<li ng-class="{active: show.menu==7}" ng-click="show.menu=7">数据分析</li>
+</ul>
+<div class="clear" style="height: 50px;"></div>
+<ul class="left_menu cox w5x" ng-class="{hidden: show.menu!=1}">
+	<li ui-sref=".news" ng-class="{active:show.tab==1}" ng-click="show.tab=1">
+		<i class="fa fa-lg fa-fw fa-newspaper-o"></i>
+		<span>企业讯息</span>
+	</li>
+	<li ui-sref=".radar"  ng-class="{active:show.tab==2}" ng-click="show.tab=2">
+		<i class="fa fa-lg fa-fw fa-bullhorn"></i>
+		<span>销售雷达</span>
+	</li>
+</ul>
+<ul class="left_menu cox w5x" ng-class="{hidden: show.menu!=2}">
+	<li ui-sref=".set_menu" ng-class="{active:show.tab==3}" ng-click="show.tab=3;show_toggle(3)">
+		<i class="fa fa-lg fa-fw fa-cutlery"></i>
+		<span>菜单管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".edit_menu"  class="tag3 hide" ng-class="{active:show.tab==4}" ng-click="show.tab=4">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>菜单资料资料维护</span>
+	</li>
+	<li ui-sref=".menu_access"  class="tag3 hide" ng-class="{active:show.tab==5}" ng-click="show.tab=5">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>菜单授权</span>
+	</li>
+	<li ui-sref=".set_flavor"  ng-class="{active:show.tab==6}" ng-click="show.tab=6">
+		<i class="fa fa-lg fa-fw fa-glass"></i>
+		<span>口味设定</span>
+	</li>
+	<li ui-sref=".set_feed" ng-class="{active:show.tab==7}" ng-click="show.tab=7">
+		<i class="fa fa-lg fa-fw fa-balance-scale"></i>
+		<span>加料设定</span>
+	</li>
+	<li ui-sref=".set_key"  ng-class="{active:show.tab==8}" ng-click="show.tab=8;show_toggle(8)">
+		<i class="fa fa-lg fa-fw fa-object-ungroup"></i>
+		<span>按键管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".edit_key" class="tag8 hide" ng-class="{active:show.tab==9}" ng-click="show.tab=9">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>按键维护</span>
+	</li>
+	<li ui-sref=".access_key" class="tag8 hide" ng-class="{active:show.tab==10}" ng-click="show.tab=10">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>按键授权</span>
+	</li>
+	<li ui-sref=".set_coin" ng-class="{active:show.tab==11}" ng-click="show.tab=11;show_toggle(11)">
+		<i class="fa fa-lg fa-fw fa-credit-card"></i>
+		<span>收款别</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".edit_coin"  class="tag11 hide" ng-class="{active:show.tab==12}" ng-click="show.tab=12">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>收款别维护</span>
+	</li>
+	<li ui-sref=".access_coin"  class="tag11 hide" ng-class="{active:show.tab==13}" ng-click="show.tab=13">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>收款别授权</span>
+	</li>
+	<li ui-sref=".set_marquee"  ng-class="{active:show.tab==14}" ng-click="show.tab=14">
+		<i class="fa fa-lg fa-fw fa-code"></i>
+		<span>跑马灯设定</span>
+	</li>
+	<li ui-sref=".import_basic_data"  ng-class="{active:show.tab==15}" ng-click="show.tab=15">
+		<i class="fa fa-lg fa-fw fa-cloud-download"></i>
+		<span>基础数据导入</span>
+	</li>
+</ul>
+<ul class="left_menu cox w5x" ng-class="{hidden: show.menu!=3}">
+	<li ui-sref=".vip"  ng-class="{active:show.tab==16}" ng-click="show.tab=16;show_toggle(16)">
+		<i class="fa fa-lg fa-fw fa-users"></i>
+		<span>会员管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".grade_vip" class="tag16 hide" ng-class="{active:show.tab==17}" ng-click="show.tab=17">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>会员分级</span>
+	</li>
+	<li ui-sref=".edit_vip" class="tag16 hide" ng-class="{active:show.tab==18}" ng-click="show.tab=18">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>会员资料维护</span>
+	</li>
+	<li ui-sref=".recharge"  ng-class="{active:show.tab==19}" ng-click="show.tab=19;show_toggle(19)">
+		<i class="fa fa-lg fa-fw fa-diamond"></i>
+		<span>积分与充值</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".set_recharge" class="tag19 hide" ng-class="{active:show.tab==20}" ng-click="show.tab=20">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>积分与充值设定</span>
+	</li>
+	<li ui-sref=".set_exchange" class="tag19 hide" ng-class="{active:show.tab==21}" ng-click="show.tab=21">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>积分兑换设定</span>
+	</li>
+	<li ui-sref=".edit_vip_exchange" class="tag19 hide" ng-class="{active:show.tab==22}" ng-click="show.tab=22">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>会员充值维护</span>
+	</li>
+</ul>
+<ul class="left_menu cox w5x" ng-class="{hidden: show.menu!=4}">
+	<li ui-sref=".access_store" ng-class="{active:show.tab==23}" ng-click="show.tab=23">
+		<i class="fa fa-lg fa-fw fa-calendar-check-o"></i>
+		<span>档期与门店授权</span>
+	</li>
+	<li ui-sref=".pro" ng-class="{active:show.tab==24}" ng-click="show.tab=24;show_toggle(24)">
+		<i class="fa fa-lg fa-fw fa-cart-arrow-down"></i>
+		<span>促销活动</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".pro_vip" class="tag24 hide" ng-class="{active:show.tab==25}" ng-click="show.tab=25">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>会员分级折扣活动</span>
+	</li>
+	<li ui-sref=".pro_special" class="24 hide" ng-class="{active:show.tab==26}" ng-click="show.tab=26">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>特价促销活动</span>
+	</li>
+	<li ui-sref=".pro_volume" class="tag24 hide" ng-class="{active:show.tab==27}" ng-click="show.tab=27">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>量价促销活动</span>
+	</li>
+	<li ui-sref=".pro_full" class="tag24 hide" ng-class="{active:show.tab==28}" ng-click="show.tab=28">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>满额送促销活动</span>
+	</li>
+	<li ui-sref=".pro_buy" class="tag24 hide" ng-class="{active:show.tab==29}" ng-click="show.tab=29">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>买送促销活动</span>
+	</li>
+	<li ui-sref=".pro_shopkeeper" class="tag24 hide" ng-class="{active:show.tab==30}" ng-click="show.tab=30">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>店长赠送活动</span>
+	</li>
+</ul>
+<ul class="left_menu cox w5x" ng-class="{hidden: show.menu!=5}">
+	<li ui-sref=".coupon" ng-class="{active:show.tab==31}" ng-click="show.tab=31">
+		<i class="fa fa-lg fa-fw fa-shopping-bag"></i>
+		<span>礼券管理</span>
+	</li>
+	<li ui-sref=".set_coupon" ng-class="{active:show.tab==32}" ng-click="show.tab=32">
+		<i class="fa fa-lg fa-fw fa-shopping-basket"></i>
+		<span>礼券</span>
+	</li>
+	<li ui-sref=".edit_coupon" ng-class="{active:show.tab==33}" ng-click="show.tab=33">
+		<i class="fa fa-lg fa-fw fa-shopping-cart"></i>
+		<span>礼券资料维护</span>
+	</li>
+</ul>
+<ul class="left_menu cox w5x" ng-class="{hidden: show.menu!=6}">
+	<li ui-sref=".aikuaigou" ng-class="{active:show.tab==34}" ng-click="show.tab=34;show_toggle(34)">
+		<i class="fa fa-lg fa-fw fa-gears"></i>
+		<span>爱快购管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".network_order" class="tag34 hide" ng-class="{active:show.tab==35}" ng-click="show.tab=35">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>网络订单设定</span>
+	</li>
+	<li ui-sref=".online_multi_platform" class="tag34 hide" ng-class="{active:show.tab==36}" ng-click="show.tab=36">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>在线多平台设定</span>
+	</li>
+	<li ui-sref=".aikuaigou_report" ng-class="{active:show.tab==37}" ng-click="show.tab=37;show_toggle(37)">
+		<i class="fa fa-lg fa-fw fa-pie-chart"></i>
+		<span>爱快购报表</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".aikuaigou_report_sale" class="tag37 hide" ng-class="{active:show.tab==38}" ng-click="show.tab=38">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>爱快购销售报表</span>
+	</li>
+	<li ui-sref=".aikuaigou_report_sale_detail" class="tag37 hide" ng-class="{active:show.tab==39}" ng-click="show.tab=39">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>爱快购销售明细表</span>
+	</li>
+</ul>
+<ul class="left_menu cox w5x" ng-class="{hidden: show.menu!=7}">
+	<li ui-sref=".门店按月分析" ng-class="{active:show.tab==40}" ng-click="show.tab=40">		
+		<span>1.门店按月分析</span>
+	</li>
+	<li ui-sref=".销售统计表" ng-class="{active:show.tab==41}" ng-click="show.tab=41">		
+		<span>2.销售统计表</span>
+	</li>
+	<li ui-sref=".销售状况比较表依日" ng-class="{active:show.tab==42}" ng-click="show.tab=42">		
+		<span>3.销售状况比较表(依日)</span>
+	</li>
+	<li ui-sref=".销售状况比较表依月" ng-class="{active:show.tab==43}" ng-click="show.tab=43">		
+		<span>4.销售状况比较表(依月)</span>
+	</li>
+	<li ui-sref=".销售类别统计表" ng-class="{active:show.tab==45}" ng-click="show.tab=45">		
+		<span>5.销售类别统计表</span>
+	</li>
+	<li ui-sref=".店别商品销售比较表依商品" ng-class="{active:show.tab==46}" ng-click="show.tab=46">		
+		<span>6.店别商品销售比较表(依商品)</span>
+	</li>
+	<li ui-sref=".店别商品销售比较表依类别" ng-class="{active:show.tab==47}" ng-click="show.tab=47">		
+		<span>7.店别商品销售比较表(依类别)</span>
+	</li>
+	</li>
+	<li ui-sref=".商品销量排行榜依商品" ng-class="{active:show.tab==48}" ng-click="show.tab=48">		
+		<span>8.商品销量排行榜(依商品)</span>
+	</li>
+	<li ui-sref=".商品销量排行榜依门店" ng-class="{active:show.tab==49}" ng-click="show.tab=49">		
+		<span>9.商品销量排行榜(依门店)</span>
+	</li>
+	<li ui-sref=".商品销量排行榜依商品类别" ng-class="{active:show.tab==50}" ng-click="show.tab=50">		
+		<span>10.商品销量排行榜(依商品类别)</span>
+	</li>
+	<li ui-sref=".门店营运报表" ng-class="{active:show.tab==51}" ng-click="show.tab=51">		
+		<span>11.门店营运报表</span>
+	</li>
+	<li ui-sref=".门店销售总记录表" ng-class="{active:show.tab==52}" ng-click="show.tab=52">		
+		<span>12.门店销售总记录表</span>
+	</li>
+	<li ui-sref=".收款类别报表" ng-class="{active:show.tab==53}" ng-click="show.tab=53">		
+		<span>13.收款类别报表</span>
+	</li>
+	<li ui-sref=".会员消费充值统计表" ng-class="{active:show.tab==54}" ng-click="show.tab=54">		
+		<span>14.会员消费充值统计表</span>
+	</li>
+	<li ui-sref=".门店退款记录表" ng-class="{active:show.tab==55}" ng-click="show.tab=55">		
+		<span>15.门店退款记录表</span>
+	</li>
+	<li ui-sref=".每小时销售报表" ng-class="{active:show.tab==56}" ng-click="show.tab=56">		
+		<span>16.每小时销售报表</span>
+	</li>
+	<li ui-sref=".产品系列走势图报表" ng-class="{active:show.tab==57}" ng-click="show.tab=57">		
+		<span>17.产品系列走势图报表()</span>
+	</li>
+	<li ui-sref=".产品系列占比报表" ng-class="{active:show.tab==58}" ng-click="show.tab=58">		
+		<span>18.产品系列占比报表()</span>
+	</li>
+	<li ui-sref=".月份同比报表" ng-class="{active:show.tab==59}" ng-click="show.tab=59">		
+		<span>19.月份同比报表</span>
+	</li>
+	<li ui-sref=".爱快购销售报表" ng-class="{active:show.tab==60}" ng-click="show.tab=60">		
+		<span>20.爱快购销售报表</span>
+	</li>
+</ul>
+<div class="main_right cox" ui-view="menu">
+	
+</div>

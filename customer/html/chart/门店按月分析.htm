@@ -1,0 +1,137 @@
+<script type="text/javascript">
+$(function () {
+    $('#container1').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: '门店按月分析',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }            
+        },subtitle: {
+        	  text: 'By销售金额',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        	
+        },
+        xAxis: {
+            categories: ['上海店', '武汉店', '北京店', '廣州店', '重庆店']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '总销售金额(万元)',
+                style: { 
+                    fontWeight: 'bold',
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }  
+            }
+        },
+        legend: {
+            reversed: true
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: <b>{point.y} 万元<br/>合计金额:  <b>{point.stackTotal} 万元'
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: '三月',
+            data: [21.4, 13.9, 25.8, 19.8, 17.9],
+            color:'#ff7f7f'
+        }, {
+            name: '二月',
+            data: [4.4, 3.1, 4.9, 4.2, 2.9],
+            color:'#ff7215'
+        }, {
+            name: '一月',
+            data: [9.2, 7.7, 11.2, 8.2, 7.2],
+            color:'#00cae9'
+        }]
+    });
+});
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: '门店按月分析',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }            
+        },subtitle: {
+        	  text: 'By杯数',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        	
+        },
+        xAxis: {
+            categories: ['上海店', '武汉店', '北京店', '廣州店', '重庆店']
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '总杯数',
+                style: { 
+                    fontWeight: 'bold',
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }  
+            }
+        },
+        legend: {
+            reversed: true
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: <b>{point.y} 杯<br/>合计杯数:  <b>{point.stackTotal} 杯'
+        },
+        plotOptions: {
+            series: {
+                stacking: 'normal'
+            }
+        },
+        series: [{
+            name: '三月',
+            data: [1647,1212 , 1986, 1342, 999],
+            color:'#ff7f7f'
+        }, {
+            name: '二月',
+            data: [376, 478, 611, 478, 256],
+            color:'#ff7215'
+        }, {
+            name: '一月',
+            data: [1488, 987, 1678, 1671, 1025],
+            color:'#00cae9'
+        }]
+    });
+});
+		</script>
+	</head>
+
+<div id="container1" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+<div id="container2" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+

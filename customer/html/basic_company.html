@@ -1,0 +1,152 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 公司基本资料维护</span>
+</header>
+<style type="text/css">
+#preview{width:260px;height:190px;overflow:hidden;  padding-right: 14px;}
+#imghead {filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=image);}
+</style>
+<script type="text/javascript">
+ 
+ 
+                //图片上传预览    IE是用了滤镜。
+        function previewImage(file)
+        {
+          var MAXWIDTH  = 260; 
+          var MAXHEIGHT = 180;
+          var div = document.getElementById('preview');
+          if (file.files && file.files[0])
+          {
+              div.innerHTML ='<img id=imghead>';
+              var img = document.getElementById('imghead');
+              img.onload = function(){
+                var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+                img.width  =  rect.width;
+                img.height =  rect.height;
+//                 img.style.marginLeft = rect.left+'px';
+                img.style.marginTop = rect.top+'px';
+              }
+              var reader = new FileReader();
+              reader.onload = function(evt){img.src = evt.target.result;}
+              reader.readAsDataURL(file.files[0]);
+          }
+          else //兼容IE
+          {
+            var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
+            file.select();
+            var src = document.selection.createRange().text;
+            div.innerHTML = '<img id=imghead>';
+            var img = document.getElementById('imghead');
+            img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
+            var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+            status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
+            div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
+          }
+        }
+        function clacImgZoomParam( maxWidth, maxHeight, width, height ){
+            var param = {top:0, left:0, width:width, height:height};
+            if( width>maxWidth || height>maxHeight )
+            {
+                rateWidth = width / maxWidth;
+                rateHeight = height / maxHeight;
+                 
+                if( rateWidth > rateHeight )
+                {
+                    param.width =  maxWidth;
+                    param.height = Math.round(height / rateWidth);
+                }else
+                {
+                    param.width = Math.round(width / rateHeight);
+                    param.height = maxHeight;
+                }
+            }
+             
+            param.left = Math.round((maxWidth - param.width) / 2);
+            param.top = Math.round((maxHeight - param.height) / 2);
+            return param;
+        }
+</script>
+<form name="form" ng-submit="basic_company(form.$valid)">
+	<table class="cirgle">
+	<tr>
+		<td colspan="3" class="mc_header">公司基本资料</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">账号：</td>
+		<td>
+			<p class="tip">18911111111</p>
+		</td>
+		<td rowspan="5" width="255px"  id="preview">
+			<img id="imghead" src='../common/img/Enjar_logo.png'>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*总部注册名称：</td>
+		<td>
+			<p class="tip">朋利来管理有限公司</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*总部所在地：</td>
+		<td>
+			<p class="tip">江苏</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*币别编号：</td>
+		<td>
+			<p class="tip">人民币</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">小数点位数：</td>
+		<td>
+			<p class="tip">2</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">税别管理：</td>
+		<td colspan="2">
+			<input type="number" name="per_count" ng-model="User.per_count" step="0.01"/>
+			<p class="tip">%</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">总部品牌名称：</td>
+		<td colspan="2">
+			<input type="text" name="brand_name" ng-model="User.brand_name" required/>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">门店数量：</td>
+		<td colspan="2">
+			<input type="number" name="store_count" ng-model="User.store_count" required/>
+			<p class="tip c_warning" ng-show="User.store_count<1"><i class="fa fa-fw fa-warning"></i>至少一家</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">电子邮箱：</td>
+		<td colspan="2">
+			<input type="email" name="email" ng-model="User.email"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">品牌Logo：</td>
+		<td colspan="2">
+			<!--<input type="file" name="" id="" value="" />-->
+			<div class="btn" onclick="document.getElementById('uploadfile').click()">上传</div>
+			<input ng-model="imgfile" type="file" style="opacity: 0;height: 0;width: 0;float: left;clear: none;" id="uploadfile" onchange="previewImage(this)"/>
+			{{imgfile}}
+		</td>
+	</tr>
+	<tr class="no_table_border">
+		<td colspan="2"></td>
+	</tr>
+	<tr>
+		<td class="no_table_border"></td>
+		<td class="no_table_border">
+			<input type="submit" class="btn" ng-class="{active:form.$valid}" value="确认"/>
+			<input type="reset" class="btn active"  value="重置"/>
+		</td>
+	</tr>
+	</table>
+</form>

@@ -1,0 +1,71 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 注册页面</span>
+	<div class="btn right" ui-sref="login">商户登录</div>
+</header>
+<div class="cox">
+	<div class="clear" style="height: 10px;"></div>
+	<form name="form" ng-submit="register(!!user.city&&form.$valid)">
+	<table class="no_table_border">
+	<tr>
+		<td class="text_align_right" width="20%">*手机号：</td>
+		<td>
+			<input type="number" name="phone" ng-model="user.phone"  required ng-minlength="11" ng-maxlength="11"/>
+			<div class="btn" ng-click="getVcode(form.phone.$valid)">获取验证码</div>
+		</td>
+		<td rowspan="7" width="450px">
+			<img src="../common/img/Enjar_logo.png" width="90%"/>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*验证码：</td>
+		<td ng-init="user.verify_code=''">
+			<input type="text" name="verify_code" ng-model="user.verify_code" ng-minlength="4"/>
+			<p class="tip c_warning" ng-show="form.verify_code.$invalid&&form.verify_code.$dirty"><i class="fa fa-fw fa-warning"></i>验证码不正确</p>
+		</td>
+	</tr>
+		<tr>
+			<td class="text_align_right">*密码：</td>
+			<td ng-init="user.password=''"><input type="password" name="password" ng-model="user.password"  value=""  required/>
+				<p class="tip c_error" ng-show="user.password&&user.password.length<=6"></i>强度：弱 ███</p>
+				<p class="tip c_warning" ng-show="user.password.length>6&&user.password.length<=12"></i>强度：中 ██████</p>
+				<p class="tip c_success"  ng-show="user.password.length>12"></i>强度：强 █████████</p>
+			</td>
+		</tr>
+	<tr>
+		<td class="text_align_right">*再次输入密码：</td>
+		<td>
+			<input type="password" name="repassword" ng-model="user.repassword"  value=""  required/>
+			<p class="tip c_error" ng-show="user.repassword!=user.password&&user.repassword">与第一次密码不符</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*总部注册名称：</td>
+		<td>
+			<input type="text" name="center_name" ng-model="user.center_name"  value=""  required/>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*总部所在地：</td>
+		<td>
+			<select name="province" ng-model="user.province" ng-options="CityData.label for CityData in CityData"  required>
+				<option value="">（请选择）</option>
+			</select>
+			<select name="city" ng-model="user.city" ng-options="province.label for province in user.province.cities" required>
+				<option value="">（请选择）</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3"></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td class="text_align_center">
+				<input type="submit" class="btn" ng-class="{active:!!user.city&&form.$valid}" value="提交注册"/>
+		</td>
+		<td></td>
+	</tr>
+	</table>
+	</form>
+	<div class="clear" style="height: 10px;"></div>
+</div>

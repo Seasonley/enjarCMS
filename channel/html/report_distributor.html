@@ -1,0 +1,53 @@
+<header class="topbar">
+	<span class="nav">渠道系统 > 经销商月度返利报表</span>
+</header>
+<div class="box mc_header">
+	经销商月度返利报表
+</div>
+<div class="box h1x">
+	<p class="tip">按名称/经销商代码：</p>
+	<input type="text" name="" id="" value="" class="w2x"/>
+	<div class="btn">查询</div>
+</div>
+
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>经销商名称</th>
+		<th>经销商代码</th>
+		<th>月份</th>
+		<th>月度返利</th>
+		<th>发票上传</th>
+	</tr>
+	<tr ng-repeat="item in ReportDistributor.list">
+		<td>{{item.name}}</td>
+		<td>{{item.code}}</td>
+		<td>{{item.month}}</td>
+		<td>{{item.mprofit}}</td>
+		<td>
+			<div class="link" ng-init="item.confirm='未上传'" ng-click="ReportDistributor.edit($index,'w_edit')">
+				{{item.confirm}}
+			</div>
+		</td>
+	</tr>
+</table>
+
+<div class="window" id="w_edit" onmouseenter="init_window()">
+    <header>
+        <p>编辑权限</p>
+        <button class="close_btn">×</button>
+    </header>
+    <div class="window_main" >
+        <form>
+        	<table class="no_table_border">
+        		<tr>
+            		<td>
+            			<input type="file" name="" id="" value="" />
+            		</td>
+        		</tr>
+        		<tr><td><div class="btn" ng-click="ReportDistributor.Upload()">确定</div></td></tr>
+        	</table>
+        </form>
+    </div>
+</div>
+
+

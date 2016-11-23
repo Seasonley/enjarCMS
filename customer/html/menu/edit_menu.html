@@ -1,0 +1,54 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > XPOS设置 > 菜单资料资料维护</span>
+</header>
+<div style="height:64px;width:100%;overflow-x: scroll;overflow-y: hidden;background-color: rgb(245,245,245);">
+	<div style="width: 1200px;display: block;height: 64px;">
+		<div class="btn">迎嘉鲜活健康</div>
+		<div class="btn active">迎嘉拿铁/鲜奶</div>
+		<div class="btn">迎嘉新鲜特调</div>
+		<div class="btn">迎嘉夏季冰钻</div>
+		<div class="btn">迎嘉限定冰沙</div>
+		<div class="btn">迎嘉东方时尚</div>
+		<div class="btn">迎嘉香醇奶茶</div>
+		<div class="btn">迎嘉手工饼干</div>
+	</div>
+</div>
+
+<div class="box mc_header" style="background: rgba(31, 171, 201,0.5);">
+	<p class="left">当前类别名：<span class="c_error">迎嘉拿铁/鲜奶</span></p>
+	<div class="btn active">类别产品</div>
+	<div class="btn">口味</div>
+	<div class="btn">加料</div>
+	<div class="btn">附加餐点</div>
+	<div class="btn">属性</div>
+</div>
+<table class="zebra"ng-init="mylist=[{  'ProductNum':'Enjar02001',  'ProductName':'红茶拿铁',  'Price':'12',  'ProductStatus':'正常'},{  'ProductNum':'Enjar02002',  'ProductName':'烤茶拿铁',  'Price':'12',  'ProductStatus':'正常'},{  'ProductNum':'Enjar02003',  'ProductName':'抹茶拿铁',  'Price':'12',  'ProductStatus':'正常'},{  'ProductNum':'Enjar02004',  'ProductName':'冬瓜拿铁',  'Price':'12',  'ProductStatus':'正常'},{  'ProductNum':'Enjar02005',  'ProductName':'铁观音拿铁',  'Price':'13',  'ProductStatus':'正常'},{  'ProductNum':'Enjar02006',  'ProductName':'仙草冻拿铁',  'Price':'13',  'ProductStatus':'正常'},{  'ProductNum':'Enjar02007',  'ProductName':'珍珠鲜奶茶',  'Price':'13',  'ProductStatus':'正常'}, {  'ProductNum':'Enjar02008',  'ProductName':'甘蔗拿铁',  'Price':'13',  'ProductStatus':'正常'}]">
+	<tr>
+		<th>置顶</th>
+		<th>产品编号</th>
+		<th>产品名称</th>
+		<th>定价</th>
+		<th>产品状态</th>
+		<th>是否打印小票</th>
+		<th>是否打印标签</th>
+		<th>销售否</th>
+		<th>自定义售价</th>
+		<th>操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td><p class="link">▲</p></td>
+		<td>{{item.ProductNum}}</td>
+		<td>{{item.ProductName}}</td>
+		<td>{{item.Price}}</td>
+		<td>{{item.ProductStatus}}</td>
+		<td><input type="checkbox"  checked/></td>
+		<td><input type="checkbox"  /></td>
+		<td><input type="checkbox"  checked/></td>
+		<td><input type="checkbox"  /></td>
+		<td>
+			<p class="link">作废</p>
+			<p class="link">编辑</p>
+			<p class="link">单品属性设定</p>
+		</td>
+	</tr>
+</table>

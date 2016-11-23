@@ -1,0 +1,34 @@
+<header class="topbar">
+	<span class="nav">经销商管理系統 > 报表管理 > 商户门店状态报表</span>
+</header>
+<div class="box mc_header">
+	商户门店状态报表
+</div>
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>总部注册名称</th>
+		<th>总部品牌名称</th>
+		<th>门店名称</th>
+		<th>pos编号1</th>
+		<th>pos编号2</th>
+		<th>开通日期</th>
+		<th>剩余使用期限（天）</th>
+		<th>费用代缴</th>
+	</tr>
+	<tr ng-repeat="item in ReportStore.list">
+		<td>{{item.hname}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.sname}}</td>
+		<td>{{item.pos1}}</td>
+		<td>{{item.pos2}}</td>
+		<td>{{item.time}}</td>
+		<td>999</td>
+		<td>{{item.surplus}}</td>
+		<td>{{item.id}}</td>
+	</tr>
+</table>
+
+
+
+
+

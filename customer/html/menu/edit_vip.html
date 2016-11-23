@@ -1,0 +1,76 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 会员资料维护</span>
+</header>
+<div class="box mc_header">
+	会员资料维护
+</div>
+<div class="box h1x">
+	<p class="tip">会员卡起始号：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w1x"/>
+	<p class="tip">会员卡结束号：</p>
+	<input type="text" name="name"  class="w1x"/>
+	<p class="tip">会员名称：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w1x"/>
+	<p class="tip">会员手机号：</p>
+	<input type="text" name="name"  class="w1x"/>
+</div>
+<div class="box h1x">
+	<p class="tip">会员身份证号：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w1x"/>
+	<p class="tip">会员生日：</p>
+	<input type="text" name="name"  class="w1x"/>
+	<p class="tip">会员状态：</p>
+	<select name="">
+		<option value="">（空）</option>
+	</select>
+	<p class="tip">作废：</p>
+	<input type="checkbox"/>
+</div>
+<div class="box h1x">
+	<div class="btn" ng-click="Search={}">列出全部</div>
+	<div class="btn" ng-click="Search={}">新增</div>
+	<div class="btn" ng-click="Search={}">导出数据</div>
+	<div class="btn" ng-click="Search={}">会员卡出库记录</div>
+	<div class="btn" ng-click="Search={}">会员卡批量调整</div>
+</div>
+
+<table border="" cellspacing="" cellpadding="" class="zebra" ng-init="mylist=[{  'Id':'1',  'VIPNum':'0000001',  'VIPName':'明月测试',  'VIPTel':'11111111111',  'Jondar':'男',  'Birthday':'19920101',  'Level':'测试卡',  'Money':'1,635.8',  'RedNum':'370',  'Status':'待领用',  'Time':'2015-12-11'},{  'Id':'2',  'VIPNum':'0000002',  'VIPName':'A',  'VIPTel':'12312341234',  'Jondar':'男',  'Birthday':'19930901',  'Level':'VIP卡2',  'Money':'100.0',  'RedNum':'0',  'Status':'待领用',  'Time':'2016-03-01'},{  'Id':'3',  'VIPNum':'0000003',  'VIPName':'B',  'VIPTel':'12341231234',  'Jondar':'男',  'Birthday':'19890101',  'Level':'金卡3',  'Money':'245.0',  'RedNum':'200',  'Status':'待领用',  'Time':'2015-12-01'}]">
+	<tr>
+		<th>序号</th>
+		<th>会员卡号</th>
+		<th>会员名称</th>
+		<th>会员手机号</th>
+		<th>性别</th>
+		<th>会员生日</th>
+		<th>会员当前级别</th>
+		<th>处置余额</th>
+		<th>红利点数</th>
+		<th>会员手机号</th>
+		<th>状态</th>
+		<th>创建时间</th>
+		<th width="210px">操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td>{{$index+1}}</td>
+		<td>{{item.VIPNum}}</td>
+		<td>{{item.VIPName}}</td>
+		<td>{{item.VIPTel}}</td>
+		<td>{{item.Jondar}}</td>
+		<td>{{item.Birthday}}</td>
+		<td>{{item.Level}}</td>
+		<td>{{item.Money}}</td>
+		<td>{{item.RedNum}}</td>
+		<td></td>
+		<td>{{item.Status}}</td>
+		<td>{{item.Time}}</td>
+		<td>
+			<div class="link" >编辑</div>
+			<div class="link" >挂失</div>
+			<div class="link" >储值</div>
+			<div class="link" >积点修改</div>
+			<div class="link" >余额修改</div>
+			<div class="link" >补换卡</div>
+			<div class="link" >消费明细</div>
+		</td>
+	</tr>
+</table>

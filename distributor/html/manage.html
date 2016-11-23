@@ -1,0 +1,41 @@
+<header class="topbar" style="z-index: 3;">
+	<div class="userimg right"></div>
+</header>
+<ul class="left_menu cox w5x">
+	<li ui-sref=".product_introduce" ng-class="{active:show.tab==1}" ng-click="show.tab=1;show_toggle(0)">
+		<i class="fa fa-lg fa-fw fa-bullhorn"></i>
+		<span>产品介绍</span>
+	</li>
+	<li ui-sref=".setup_introduce" ng-class="{active:show.tab==2}" ng-click="show.tab=2;show_toggle(0)">
+		<i class="fa fa-lg fa-fw fa-desktop"></i>
+		<span>装机指南</span>
+	</li>
+	<li ui-sref=".operation_manual" ng-class="{active:show.tab==3}" ng-click="show.tab=3;show_toggle(0)">
+		<i class="fa fa-lg fa-fw fa-hand-pointer-o"></i>
+		<span>操作手册</span>
+	</li>
+	<li ui-sref=".account" ng-class="{active:show.tab==4}" ng-click="show.tab=4;show_toggle(0)">
+		<i class="fa fa-lg fa-fw fa-tasks"></i>
+		<span>商户信息管理</span>
+	</li>
+	<li ui-sref=".report_introduce" ng-class="{active:show.tab==5}" ng-click="show.tab=5;show_toggle(5)">
+		<i class="fa fa-lg fa-fw fa-bar-chart"></i>
+		<span>报表管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".report_store" class="tag5 hide" ng-class="{active:show.tab==6}" ng-click="show.tab=6">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>商户门店状态报表</span>
+	</li>
+	<li ui-sref=".report_kpi" class="tag5 hide" ng-class="{active:show.tab==7}" ng-click="show.tab=7">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>经销商KPI报表</span>
+	</li>
+	<li ui-sref=".report_distributor" class="tag5 hide" ng-class="{active:show.tab==8}" ng-click="show.tab=8">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>经销商分润报表</span>
+	</li>
+</ul>
+<div class="main_right cox"ui-view="manage">
+	
+</div>

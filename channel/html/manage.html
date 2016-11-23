@@ -1,0 +1,51 @@
+<header class="topbar" style="z-index: 3;">
+	<div class="userimg right"></div>
+</header>
+<ul class="left_menu cox w5x">
+	<li ui-sref=".distributor_introduce" ng-class="{active:show.tab==1}" ng-click="show.tab=1;show_toggle(1)">
+		<i class="fa fa-lg fa-fw fa-users"></i>
+		<span>经销商信息管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".distributor_add" class="tag1 hide" ng-class="{active:show.tab==2}" ng-click="show.tab=2">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>经销商新增</span>
+	</li>
+	<li ui-sref=".distributor_list" class="tag1 hide" ng-class="{active:show.tab==3}" ng-click="show.tab=3">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>经销商列表</span>
+	</li>
+	<li ui-sref=".report_introduce" ng-class="{active:show.tab==4}" ng-click="show.tab=4;show_toggle(4)">
+		<i class="fa fa-lg fa-fw fa-bar-chart"></i>
+		<span>报表管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".report_distributor" class="tag4 hide" ng-class="{active:show.tab==5}" ng-click="show.tab=5">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>经销商月度返利报表</span>
+	</li>
+	<li ui-sref=".report_year" class="tag4 hide" ng-class="{active:show.tab==6}" ng-click="show.tab=6">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>经销商年度分润报表</span>
+	</li>
+	<li ui-sref=".report_charge" class="tag4 hide" ng-class="{active:show.tab==7}" ng-click="show.tab=7">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>商户充值报表</span>
+	</li>
+	<li ui-sref=".setting_introduce" ng-class="{active:show.tab==8}" ng-click="show.tab=8;show_toggle(8)">
+		<i class="fa fa-lg fa-fw fa-tasks"></i>
+		<span>系统管理</span>
+		<i class="fa fa-lg fa-fw fa-angle-down"></i>
+	</li>
+	<li ui-sref=".setting_account" class="tag8 hide" ng-class="{active:show.tab==9}" ng-click="show.tab=9">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>账号管理</span>
+	</li>
+	<li ui-sref=".setting_access" class="tag8 hide" ng-class="{active:show.tab==10}" ng-click="show.tab=10">
+		<i class="fa fa-lg fa-fw fa-angle-right c_white"></i>
+		<span>系统权限</span>
+	</li>
+</ul>
+<div class="main_right cox"ui-view="manage">
+	
+</div>

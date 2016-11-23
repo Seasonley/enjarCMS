@@ -1,0 +1,106 @@
+﻿
+
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript">
+
+$(function () {
+        $('#container1').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: '每小时销售报表',
+                style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+            },
+            xAxis: {
+                categories: ['北京店','上海店','廣州店','深圳店','重庆店']
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '销售金额(%)',
+                    style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '%';
+                    },
+                    style: { 
+                    fontSize: '12px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+            },
+            tooltip: {
+                pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y}</b> ({point.percentage:.2F}%)<br/>',
+                shared: true
+            },
+            legend: {
+                enabled: true                
+            },
+            plotOptions: {
+                column: {
+                    stacking: 'percent'
+                }
+            },
+                series: [{
+                name: '10-11點',
+                data: [1112 ,832 ,169 ,1543, 448]
+            }, {
+                name: '11-12點',
+                data: [8325 ,8035, 4691,10666, 2951]
+            }, {
+                name: '12-13點',
+                data: [21495,19518, 17282, 36843, 8810]
+            }, {
+                name: '13-14點',
+                data: [10970,9440,5947,15029, 4279]
+            }, {
+                name: '14-15點',
+                data: [6230,5290,3604,7311,1901]
+            }, {
+                name: '15-16點',
+                data: [4307,3325, 2468, 4966, 1236]
+            }, {
+                name: '16-17點',
+                data: [3994,4007, 2051, 6743, 1566]
+            }, {
+                name: '17-18點',
+                data: [7451,9050,3453,23221, 3810]
+            }, {
+                name: '18-19點',
+                data: [13943,14513, 7614,19301, 5997]
+            }, {
+                name: '19-20點',
+                data: [12921,14756, 6982,12184, 4797]
+            }, {
+                name: '20-21點',
+                data: [7526,8475,4521,7876,2685]
+            }]
+        });
+    });
+		</script>    
+
+		</script>
+	</head>
+	
+	<body>
+<script src="../../../frameworks/highcharts/js/highcharts.js"></script>
+<script type="text/javascript" src="../../../frameworks/highcharts/js/themes/deafault.js"></script>
+<script src="../../../frameworks/highcharts/js/highcharts-more.js"></script>
+<script src="../../../frameworks/highcharts/js/modules/exporting.js"></script>
+
+
+
+<div id="container1" style="min-width: 310px; height: 600px; margin: 0 auto"></div>

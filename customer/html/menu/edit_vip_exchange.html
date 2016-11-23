@@ -1,0 +1,44 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 会员充值维护</span>
+</header>
+<div class="box mc_header">
+	会员充值维护
+</div>
+
+<div class="box h1x">
+	<p class="tip">会员卡号：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w1x"/>
+	<p class="tip">会员名称：</p>
+	<input type="text" name="name"  class="w1x"/>
+	<p class="tip">时间：</p>
+	<input type="date" name="cid" ng-model="Search.cid"/>
+	<p class="tip">~</p>
+	<input type="date" name="name" />
+	<div class="btn" ng-click="Search={}">清空</div>
+	<div class="btn" ng-click="Search={}">列出全部</div>
+</div>
+
+<table  class="zebra" ng-init="mylist=[{ 'Id':'1', 'VIPNum':'000002', 'VIPName':'A', 'Money':'100.0', 'Time':'2015-10-10 20:00:00', 'Name':'充值', 'Detail':''},{ 'Id':'2', 'VIPNum':'000003', 'VIPName':'B', 'Money':'90.0', 'Time':'2015-10-10 20:00:00', 'Name':'充值', 'Detail':''},{ 'Id':'3', 'VIPNum':'000004', 'VIPName':'C', 'Money':'100.0', 'Time':'2015-10-10 20:00:00', 'Name':'充值', 'Detail':''},{ 'Id':'4', 'VIPNum':'000001', 'VIPName':'D', 'Money':'90.0', 'Time':'2015-10-10 20:00:00', 'Name':'充值', 'Detail':''},{ 'Id':'5', 'VIPNum':'000005', 'VIPName':'E', 'Money':'110.0', 'Time':'2015-10-10 20:00:00', 'Name':'充值', 'Detail':''},{ 'Id':'6', 'VIPNum':'000006', 'VIPName':'F', 'Money':'111.0', 'Time':'2015-10-10 20:00:00', 'Name':'充值', 'Detail':''}]">
+	<tr>
+		<th>序号</th>
+		<th>会员卡号</th>
+		<th>会员名称</th>
+		<th>金额</th>
+		<th>充值时间</th>
+		<th>交易名称</th>
+		<th>备注</th>
+		<th width="120px">操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td>{{$index+1}}</td>
+		<td>{{item.VIPNum}}</td>
+		<td>{{item.VIPName}}</td>
+		<td>{{item.Money}}</td>
+		<td>{{item.Time}}</td>
+		<td>{{item.Name}}</td>
+		<td>{{item.Detail}}</td>
+		<td>
+			<div class="link" >会员充值修改</div>
+		</td>
+	</tr>
+</table>

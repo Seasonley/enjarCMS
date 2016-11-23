@@ -1,0 +1,80 @@
+[
+  {
+    "month": "M1",
+    "KPI": "120000",
+    "success": "120000",
+    "proportion": "100%"
+  },
+  {
+    "month": "M2",
+    "KPI": "120000",
+    "success": "0",
+    "proportion": "0%"
+  },
+  {
+    "month": "M3",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M4",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M5",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M6",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M7",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M8",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M9",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M10",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M11",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "M12",
+    "KPI": "120000",
+    "success": "",
+    "proportion": ""
+  },
+  {
+    "month": "合计",
+    "KPI": "1440000",
+    "success": "120000",
+    "proportion": "8.30%"
+  }
+]

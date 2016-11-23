@@ -1,0 +1,95 @@
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '收款类别报表',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },        
+        subtitle: {
+        },
+        xAxis: {
+            categories: ['上海店', '武汉店', '北京店', '廣州店', '重庆店'],
+            labels: { 
+                            rotation: 0, 
+                            style: { 
+                                   fontSize: '15px', 
+                                   fontFamily: '微軟正黑體',
+                                   color:'black'
+                                   }
+                        }
+        },
+        yAxis: {
+            min: 0,labels: {
+                    format: '{value}万',
+                    style: {
+                        fontSize: '12px', 
+                        fontFamily: '微軟正黑體',
+                        color:'black'
+                    }
+                },
+            title: {
+                text: '收款总金额(万元)',
+                style: { 
+                        fontWeight: 'bold',
+                        fontSize: '20px', 
+                        fontFamily: '微軟正黑體',
+                        color:'black'
+                       }
+            },
+            stackLabels: {
+                enabled: true,
+                style: {
+                       fontWeight: 'bold',
+                       color: (Highcharts.theme && Highcharts.theme.textColor) || 'black',
+                       fontSize: '18px', 
+                       fontFamily: '微軟正黑體'
+                }
+            }
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: <b>{point.y} 万元<br/>合计金额:  <b>{point.stackTotal} 万元'
+        },
+        plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
+                    style: {
+                           textShadow: '0 0 3px black',
+                           fontSize: '18px', 
+                           fontFamily: '微軟正黑體'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '现金支付',
+            data: [21.4, 13.9, 25.8, 19.8, 17.9],
+            color:'#ff7f7f'
+        }, {
+            name: '会员卡付款',
+            data: [4.4, 3.1, 4.9, 4.2, 2.9],
+            color:'#ff7215'
+        }, {
+            name: '支付宝',
+            data: [9.2, 7.7, 11.2, 8.2, 7.2],
+            color:'#00cae9'
+        }, {
+            name: '微信支付',
+            data: [8.4, 4.6, 9.8, 7.6, 6.1],
+            color:'#4faa00'
+        }]
+    });
+});
+		</script><div id="container" style="max-width: 900px; height: 600px; margin: 0 auto"></div>

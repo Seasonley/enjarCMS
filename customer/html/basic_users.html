@@ -1,0 +1,120 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 公司使用者管理页面</span>
+</header>
+<div class="box mc_header">
+	公司使用者管理
+</div>
+<div class="box h1x">
+	<p class="tip">使用者账号：</p>
+	<input type="text" ng-model="Search.account" class="w2x"/>
+	<p class="tip">使用者姓名：</p>
+	<input type="text" ng-model="Search.name" class="w2x"/>
+	<div class="btn " ng-click="Search={}">查找</div>
+	<div class="btn" ng-click="Search={}">重置</div>
+	<div class="btn right" onclick="ow('w_edit');" ng-click="user={}">新增</div>
+</div>
+
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>序号</th>
+		<th>使用者账号</th>
+		<th>使用者姓名</th>
+		<th>使用者身份</th>
+		<th>员工类型</th>
+		<th>状态</th>
+		<th>创建时间</th>
+		<th width="170px">操作</th>
+	</tr>
+	<tr ng-repeat="item in UserBasic.list |filter:{account:Search.account}|filter:{name:Search.name}">
+		<td>{{item.id}}</td>
+		<td>{{item.account}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.identity}}</td>
+		<td>{{item.type}}</td>
+		<td>{{item.state}}</td>
+		<td>{{item.time}}</td>
+		<td>
+			<div class="link" onclick="if(confirm('确认操作？'))$(this).parent().parent().remove()">删除</div>
+			<div class="link" ng-click="UserBasic.edit($index,'w_edit')">编辑</div>
+			<div class="link" onclick="ow('w_edit_password')">修改密码</div>
+		</td>
+	</tr>
+</table>
+
+<div class="window" id="w_edit" onmouseenter="init_window()">
+    <header>
+        <p>编辑账号</p>
+        <button class="close_btn">×</button>
+    </header>
+    <div class="window_main" >
+	<form name="form_edit" ng-submit="FromUpdate(form_edit.$valid)">
+	<table class="no_table_border">
+	<tr>
+		<td class="text_align_right">*使用者账号：</td>
+		<td>
+			<input type="text" name="account" ng-model="user.account"  value=""  required/>
+			<p class="tip c_error" ng-show="form_edit.account.$invalid&&form_edit.account.$dirty">不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*使用者姓名：</td>
+		<td>
+			<input type="text" name="name" ng-model="user.name"  value=""  required/>
+			<p class="tip c_error" ng-show="form_edit.name.$invalid&&form_edit.name.$dirty">不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*使用者身份：</td>
+		<td>
+			<input type="text" name="identity" ng-model="user.identity"  value=""  required/>
+			<p class="tip c_error" ng-show="form_edit.identity.$invalid&&form_edit.identity.$dirty">不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*员工类型：</td>
+		<td>
+			<input type="text" name="type" ng-model="user.type"  value=""  required/>
+			<p class="tip c_error" ng-show="form_edit.type.$invalid&&form_edit.type.$dirty">不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" class="btn" ng-class="{active:form_edit.$valid}" value="提交"/></td>
+	</tr>
+	</table>
+	</form>
+    </div>
+</div>
+<div class="window" id="w_edit_password" onmouseenter="init_window()">
+    <header>
+        <p>修改密码</p>
+        <button class="close_btn">×</button>
+    </header>
+    <div class="window_main" >
+	<form name="form" ng-submit="FromPassword(user.repassword==user.password&&form.$valid)">
+	<table class="no_table_border">
+		<tr>
+			<td class="text_align_right">*密码：</td>
+			<td><input type="password" name="password" ng-model="user.password"  value=""  required/>
+				<p class="tip c_error" ng-show="user.password&&user.password.length<=6"></i>强度：弱 ███</p>
+				<p class="tip c_warning" ng-show="user.password.length>6&&user.password.length<=12"></i>强度：中 ██████</p>
+				<p class="tip c_success"  ng-show="user.password.length>12"></i>强度：强 █████████</p>
+			</td>
+		</tr>
+	<tr>
+		<td class="text_align_right">*再次输入密码：</td>
+		<td>
+			<input type="password" name="repassword" ng-model="user.repassword"  value=""  required/>
+			<p class="tip c_error" ng-show="user.repassword!=user.password&&user.repassword">与第一次密码不符</p>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><input type="submit" class="btn" ng-class="{active:form.$valid&&user.repassword==user.password}" value="提交注册"/></td>
+	</tr>
+	</table>
+	</form>
+    </div>
+</div>
+
+

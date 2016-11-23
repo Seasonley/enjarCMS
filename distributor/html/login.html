@@ -1,0 +1,72 @@
+<header class="topbar">
+	<span class="span_nav">经销商管理系統 > 登录页面</span>
+</header>
+<div class="cox text_align_center">
+		<div class="clear float_mid" style="height: 50px;"></div>
+	<form name="form" ng-submit="login(form.$valid)">
+	<table class="no_table_border float_mid">
+	<tr>
+		<td rowspan="4" style="width: 50%;">
+			<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet">
+			<div id="myCarousel" class="carousel slide" style="height: 304px;width: 540px;float: right;">
+				<ol class="carousel-indicators">
+					<li data-target="#myCarousel" data-slide-to="0" class="active">
+						<li data-target="#myCarousel" data-slide-to="1">
+				</ol>
+				<div class="carousel-inner">
+					<div class="item active">
+						<img src="../common/img/d1.jpg" alt="First slide" style="height: 304px;width: 540px;">
+					</div>
+					<div class="item">
+						<img src="../common/img/d2.jpg" alt="Second slide" style="height: 304px;width: 540px;">
+					</div>
+				</div>
+				<a class="carousel-control left" href="/demo/bootstrap3-plugin-carousal-simple.htm#myCarousel" data-slide="prev"></a>
+				<a class="carousel-control right" href="/demo/bootstrap3-plugin-carousal-simple.htm#myCarousel" data-slide="next"></a>
+			</div>
+			<script>
+				$('.carousel').carousel({
+				  interval: 5000
+				})
+			</script>
+		</td>
+		<td class="text_align_right" width="150px">
+			*经销商代号：
+		</td>
+		<td width="150px">
+			<input type="text" name="code" ng-model="user.code"  required />
+		</td>
+		<td width="200px">
+			<p class="tip c_warning" ng-show="form.code.$invalid&&form.code.$dirty"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">
+			*登录密码：
+		</td>
+		<td width="150px">
+			<input type="password" name="password" ng-model="user.password"  value=""  required/>
+		</td>
+		<td width="200px">
+			<p class="tip c_warning" ng-show="form.password.$invalid&&form.password.$dirty"><i class="fa fa-fw fa-warning"></i>密码不为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">
+			*请将滑块滑到最右：
+		</td>
+		<td>
+			<input type="range" name="range" ng-model="user.range" ng-init="user.range=0" min="0" max="100" step="1" class="sliderange" style="padding: 0;width: 177px;" required/>
+		</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td colspan="2">
+			<input type="submit" class="button" ng-class="{active:!form.$invalid&&user.range==100}" value="立即登录"/>
+			<div class="button" ui-sref="forgetpassword">忘记密码</div>
+		</td>
+	</tr>
+	</table>
+</form>
+	<div class="clear float_mid" style="height: 50px;"></div>
+</div>

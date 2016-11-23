@@ -1,0 +1,36 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 菜单授权</span>
+</header>
+<div class="box mc_header">
+	菜单授权
+</div>
+<div class="box h1x">
+	<p class="tip">模板编号：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w2x"/>
+	<p class="tip">模板名称：</p>
+	<input type="text" name="name" ng-model="Search.name" class="w2x"/>
+	<div class="btn" ng-click="Search={}">清空</div>
+	<div class="btn" ng-click="Search={}">列出全部</div>
+	<div class="btn right" onclick="ow('w_edit');" ng-click="user={}">新增</div>
+</div>
+
+<table border="" cellspacing="" cellpadding="" class="zebra" ng-init="mylist=[{  'ModelNum':'2014',  'ModelName':'4.9测试'},{  'ModelNum':'bslb',  'ModelName':'巴斯罗宾测试'},{  'ModelNum':'12312',  'ModelName':'Alex测试模板'},{  'ModelNum':'1025',  'ModelName':'AOPEN'},{  'ModelNum':'A0000',  'ModelName':'面包模板'}]">
+	<tr>
+		<th>序号</th>
+		<th>模板编号</th>
+		<th>模板名称</th>
+		<th width="360px">操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td>{{$index+1}}</td>
+		<td>{{item.ModelNum}}</td>
+		<td>{{item.ModelName}}</td>
+		<td>
+			<div class="link" onclick="if(confirm('确认操作？'))$(this).parent().parent().remove()">删除</div>
+			<div class="link" >编辑</div>
+			<div class="link">模块授权</div>
+			<div class="link">菜单明细</div>
+			<div class="link">菜单资料异动派发</div>
+		</td>
+	</tr>
+</table>

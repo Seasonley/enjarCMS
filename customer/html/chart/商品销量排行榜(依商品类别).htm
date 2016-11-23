@@ -1,0 +1,95 @@
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: '商品销量排行榜(依商品类别)',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+        xAxis: [{
+            categories: ['鲜活健康', '鲜奶拿铁', '新鲜特调', '夏季冰钻', '东方时尚','香醇奶茶'],
+            crosshair: true
+        }],
+        yAxis: [{ // Secondary yAxis
+            title: {
+                text: '销售量',
+                style: {
+                    fontWeight: 'bold',
+                    color: '#55bbff',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            labels: {
+                format: '{value} 杯',
+                style: {
+                    color: '#55bbff',
+                    fontSize: '15px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            opposite: true
+        },{ // Primary yAxis
+            labels: {
+                format: '{value} 元',
+                style: {
+                    color: '#ff3f3f',
+                    fontSize: '15px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            title: {
+                text: '	',
+                style: {
+                    fontWeight: 'bold',
+                    color: '#ff3f3f',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體'
+                }
+            }
+        }],
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black',
+                    style: {
+                           textShadow: '0 0 3px white',
+                           fontSize: '18px', 
+                           fontFamily: '微軟正黑體'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '销售金额',
+            type: 'column',
+            yAxis: 1,
+            data: [58906,47688,39804,35757,30981,29488],
+            tooltip: {
+                valueSuffix: ' 元'
+            },
+            color:'#ff3f3f'
+        }, {
+            name: '销售量',
+            type: 'spline',
+            data: [3714,2848,2143,1926,1580,1458],
+            tooltip: {
+                valueSuffix: ' 杯'
+            },
+            color:'#55bbff'
+        }]
+    });
+});
+		</script><div id="container" style="max-width: 1200px; height: 600px; margin: 0 auto"></div>

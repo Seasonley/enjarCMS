@@ -1,0 +1,106 @@
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: '月份同比报表',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+        xAxis: [{
+            categories: ['一月', '二月', '三月', '四月', '五月','六月',
+                         '七月', '八月', '九月', '十月', '十一月','十二月'],
+            crosshair: true
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                style: {
+                    color: '#ff3f3f',
+                    fontSize: '15px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            title: {
+                text: '销售金额',
+                style: {
+                    fontWeight: 'bold',
+                    color: '#ff3f3f',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體'
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: '同比增长率',
+                style: {
+                    fontWeight: 'bold',
+                    color: '#55bbff',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            labels: {
+                format: '{value} %',
+                style: {
+                    color: '#55bbff',
+                    fontSize: '15px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            opposite: true
+        }],
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black',
+                    style: {
+                           textShadow: '0 0 3px white',
+                           fontSize: '18px', 
+                           fontFamily: '微軟正黑體'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '2014年',
+            type: 'column',
+            data: [290000, 272198, 276964, 380000, 260000],
+            tooltip: {
+                valueSuffix: ' 元'
+            },
+            color:'#ff3f3f'
+        }, {
+            name: '2015年',
+            type: 'column',
+            data: [376420, 321738, 420431, 304000, 494000],
+            tooltip: {
+                valueSuffix: ' 元'
+            },
+            color:'#ff3f3f'
+        },{
+            name: '同比增长率',
+            type: 'spline',
+            yAxis: 1,
+            data: [29.8, 18.2, 51.8, -20, 90],
+            tooltip: {
+                valueSuffix: ' %'
+            },
+            color:'#55bbff'
+        }]
+    });
+});
+		</script>
+	</head>
+	<body>
+<div id="container" style="max-width: 1200px; height: 600px; margin: 0 auto"></div>
+

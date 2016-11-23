@@ -1,0 +1,98 @@
+<header class="topbar">
+	<span class="nav">渠道系统 > 系统管理 > 账号管理</span>
+</header>
+<div class="box mc_header">
+	账号管理
+</div>
+<div class="box h1x">
+	<div class="btn right" ui-sref="manage.setting_account_add">新增</div>
+</div>
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>渠道经理账号</th>
+		<th>渠道经理密码</th>
+		<th>姓名</th>
+		<th>所属区域</th>
+		<th>所属省份</th>
+		<th width="105px">操作</th>
+	</tr>
+	<tr ng-repeat="item in Account.list">
+		<td>{{item.macount}}</td>
+		<td>{{item.mpwd}}</td>
+		<td>{{item.name}}</td>
+		<td>{{item.area}}</td>
+		<td>{{item.province}}</td>
+		<td>
+			<div class="link" ng-click="Account.edit($index,'w_edit')">编辑</div>
+			<div class="link" onclick="$(this).parent().parent().remove()">删除</div>
+		</td>
+	</tr>
+</table>
+<div class="window" id="w_edit" onmouseenter="init_window()">
+        <header>
+            <p>编辑渠道经理账号</p>
+            <button class="close_btn">×</button>
+        </header>
+        <div class="window_main" style="width: 530px;">
+            	<form name="form" ng-submit="Account.Update(!!user.pvc&&form.$valid)">
+	<table class="no_table_border">
+	<tr>
+		<td class="text_align_right" width="150px">*渠道经理账号：</td>
+		<td>
+			<input type="text" name="macount" ng-model="user.macount"  required/>
+			<p class="tip c_warning" ng-show="form.macount.$invalid&&form.macount.$dirty"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">*渠道经理密码：</td>
+		<td>
+			<input type="text" name="mpwd" ng-model="user.mpwd"  value=""  required/>
+				<p class="tip c_error" ng-show="user.mpwd&&user.mpwd.length<=6"></i>强度：弱 ███</p>
+				<p class="tip c_warning" ng-show="user.mpwd.length>6&&user.mpwd.length<=12"></i>强度：中 ██████</p>
+				<p class="tip c_success"  ng-show="user.mpwd.length>12"></i>强度：强 █████████</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*所属区域 & 省份：</td>
+		<td>
+			<select name="area"  required>
+				<option value="hb">华北</option>
+				<option value="db">东北</option>
+				<option value="hd">华东</option>
+				<option value="hz">华中</option>
+				<option value="hn">华南</option>
+				<option value="xn">西南</option>
+				<option value="xb">西北</option>
+				<option value="oo">其他</option>
+			</select>
+			<select name="pvc" ng-model="user.pvc" ng-options="CityData.label for CityData in CityData | filter: {area: distributor.area}">
+				<option value="">{{user.province}}</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">*姓名：</td>
+		<td>
+			<input type="text" name="name" ng-model="user.name"  required/>
+			<p class="tip c_warning" ng-show="form.phone.$invalid&&form.phone.$dirty"><i class="fa fa-fw fa-warning"></i>请输入正确的电话</p>
+		</td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td><td></td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td>
+		<td>
+				<input type="submit" class="btn" ng-class="{active:!!user.pvc&&form.$valid}" value="确认" onclick="alert('修改成功');location.reload()"/>
+				<input type="reset" class="btn active"  value="重置" />
+		</td>
+	</tr>
+	</table>
+	</form>
+
+        </div>
+    </div>
+
+
+
+

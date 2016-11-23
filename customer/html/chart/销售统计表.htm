@@ -1,0 +1,325 @@
+
+<script type="text/javascript">
+$(function () {
+    // Create the chart
+    $('#container1').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '销售金额统计表',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+        subtitle: {},
+        xAxis: {
+            type: 'category',
+                labels: {
+                    step: 1,
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+        },
+        yAxis: {
+            title: {
+                text: '销售金额',
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+            },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '元';
+                    },
+                    style: { 
+                    fontSize: '12px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}元'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:12px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.1f}元</b>'
+        },
+
+        series: [{
+            name: "系列",
+            colorByPoint: true,
+            data: [{
+                name: "鲜活健康",
+                y: 1220.7,
+                drilldown: "鲜活健康"
+            }, {
+                name: "鲜奶拿铁",
+                y: 988.5,
+                drilldown: "鲜奶拿铁"
+            }, {
+                name: "新鲜特调",
+                y: 1537.9,
+                drilldown: "新鲜特调"
+            }, {
+                name: "夏季冰钻",
+                y: 508,
+                drilldown: "夏季冰钻"
+            }, {
+                name: "东方时尚",
+                y: 767.2,
+                drilldown: "东方时尚"
+            }, {
+                name: "香醇奶茶",
+                y: 1888.8,
+                drilldown: "香醇奶茶"
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: "鲜活健康",
+                id: "鲜活健康",
+                data: [
+                    ["冬瓜茶(大)",300],
+                    ["冬瓜茶(中)",175],
+                    ["冬瓜嫩仙草(大)",275],
+                    ["冬瓜嫩仙草(中)",100],
+                    ["冬瓜柠檬(大)",250],
+                    ["冬瓜柠檬(中)",120.7]
+                ]
+            }, {
+                name: "鲜奶拿铁",
+                id: "鲜奶拿铁",
+                data: [["铁观音拿铁",200],
+                    ["红茶拿铁",150],
+                    ["烤茶拿铁",175],
+                    ["抹茶拿铁",200],
+                    ["仙草冻拿铁",125],
+                    ["珍珠鲜奶茶",138.5]]
+            }, {
+                name: "新鲜特调",
+                id: "新鲜特调",
+                data: [["梅子绿茶",110],
+                    ["蜂蜜绿茶",190],
+                    ["百香绿茶",145],
+                    ["柠檬绿茶",288],
+                    ["柠檬青茶",107],
+                    ["葡萄柚绿茶",203],
+                    ["土芒果绿茶",101],
+                    ["甘蔗青茶",145],
+                    ["多多绿茶",200],
+                    ["青酿梅绿",48.9]]
+            }, {
+                name: "夏季冰钻",
+                id: "夏季冰钻",
+                data: [["翡翠柠檬",93],
+                    ["翡翠菠萝",67],
+                    ["草莓欧蕾冰钻",113],
+                    ["芒果欧蕾冰钻",150],
+                    ["桂花乌梅冰钻",85]]
+            }, {
+                name: "东方时尚",
+                id: "东方时尚",
+                data: [["樱花煎茶",146],
+                    ["玄米玉露",206],
+                    ["东方美人",154],
+                    ["阿里山金萱",188],
+                    ["安溪铁观音",73.2]]
+            }, {
+                name: "香醇奶茶",
+                id: "香醇奶茶",
+                data: [["台北迎嘉奶茶",404],
+                    ["台北迎嘉奶绿",208],
+                    ["台北迎嘉珍奶",599],
+                    ["迎嘉招牌烤奶",388],
+                    ["招牌烤奶冻",289.8]]
+            }]
+        }
+    });
+});
+$(function () {
+    // Create the chart
+    $('#container2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '销售杯数统计表',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+        subtitle: {},
+        xAxis: {
+            type: 'category',
+                labels: {
+                    step: 1,
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+        },
+        yAxis: {
+            title: {
+                text: '销售杯数',
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+            },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '杯';
+                    },
+                    style: { 
+                    fontSize: '12px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:f}杯'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:12px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:f}杯</b>'
+        },
+
+        series: [{
+            name: "系列",
+            colorByPoint: true,
+            data: [{
+                name: "鲜活健康",
+                y: 122,
+                drilldown: "鲜活健康"
+            }, {
+                name: "鲜奶拿铁",
+                y: 99,
+                drilldown: "鲜奶拿铁"
+            }, {
+                name: "新鲜特调",
+                y: 153,
+                drilldown: "新鲜特调"
+            }, {
+                name: "夏季冰钻",
+                y: 50,
+                drilldown: "夏季冰钻"
+            }, {
+                name: "东方时尚",
+                y: 78,
+                drilldown: "东方时尚"
+            }, {
+                name: "香醇奶茶",
+                y: 192,
+                drilldown: "香醇奶茶"
+            }]
+        }],
+        drilldown: {
+            series: [{
+                name: "鲜活健康",
+                id: "鲜活健康",
+                data: [
+                    ["冬瓜茶 (大)",30],
+                    ["冬瓜茶 (中)",17],
+                    ["冬瓜嫩仙草 (大)",27],
+                    ["冬瓜嫩仙草 (中)",10],
+                    ["冬瓜柠檬 (大)",25],
+                    ["冬瓜柠檬 (中)",13]
+                ]
+            }, {
+                name: "鲜奶拿铁",
+                id: "鲜奶拿铁",
+                data: [["铁观音拿铁",20],
+                    ["红茶拿铁",15],
+                    ["烤茶拿铁",19],
+                    ["抹茶拿铁",20],
+                    ["仙草冻拿铁",12],
+                    ["珍珠鲜奶茶",13]]
+            }, {
+                name: "新鲜特调",
+                id: "新鲜特调",
+                data: [["梅子绿茶",11],
+                    ["蜂蜜绿茶",19],
+                    ["百香绿茶",14],
+                    ["柠檬绿茶",28],
+                    ["柠檬青茶",12],
+                    ["葡萄柚绿茶",20],
+                    ["土芒果绿茶",12],
+                    ["甘蔗青茶",12],
+                    ["多多绿茶",20],
+                    ["青酿梅绿",5]]
+            }, {
+                name: "夏季冰钻",
+                id: "夏季冰钻",
+                data: [["翡翠柠檬",9],
+                    ["翡翠菠萝",6],
+                    ["草莓欧蕾冰钻",11],
+                    ["芒果欧蕾冰钻",17],
+                    ["桂花乌梅冰钻",7]]
+            }, {
+                name: "东方时尚",
+                id: "东方时尚",
+                data: [["樱花煎茶",14],
+                    ["玄米玉露",23],
+                    ["东方美人",15],
+                    ["阿里山金萱",18],
+                    ["安溪铁观音",8]]
+            }, {
+                name: "香醇奶茶",
+                id: "香醇奶茶",
+                data: [["台北迎嘉奶茶",42],
+                    ["台北迎嘉奶绿",20],
+                    ["台北迎嘉珍奶",64],
+                    ["迎嘉招牌烤奶",38],
+                    ["招牌烤奶冻",28]]
+            }]
+        }
+    });
+});
+		</script>
+	</head>
+	<body>
+<script src="../../../frameworks/highcharts/js/highcharts.js"></script>
+<script src="../../../frameworks/highcharts/js/modules/data.js"></script>
+<script src="../../../frameworks/highcharts/js/modules/drilldown.js"></script>
+
+<div id="container1" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+<div id="container2" style="min-width: 310px; height: 400px; margin: 0 auto"></div>

@@ -1,0 +1,40 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 积分兑换设定</span>
+</header>
+<div class="box mc_header">
+	积分兑换设定
+</div>
+
+<div class="box h1x">
+	<p class="tip">兑换品编号：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w2x"/>
+	<p class="tip">兑换品名称：</p>
+	<input type="text" name="name" ng-model="Search.name" class="w2x"/>
+	<p class="tip">状态：</p>
+	<select name="">
+		<option value="">(空)</option>
+	</select>
+	
+	<div class="btn" ng-click="Search={}">清空</div>
+	<div class="btn right" onclick="">新增</div>
+</div>
+<table class="zebra"ng-init="mylist=[{  'Id':'1',  'ItemId':'B0001',  'ItemName':'新疆羊肉串',  'Status':'是'},{  'Id':'2',  'ItemId':'B0002',  'ItemName':'芝士条',  'Status':'是'},{  'Id':'3',  'ItemId':'B0003',  'ItemName':'拿铁兑换',  'Status':'是'},{  'Id':'4',  'ItemId':'B0004',  'ItemName':'香草吧噗',  'Status':'是'},{  'Id':'5',  'ItemId':'B0004',  'ItemName':'两个点系列',  'Status':'是'},{  'Id':'6',  'ItemId':'B0005',  'ItemName':'红茶拿铁',  'Status':'是'},{  'Id':'7',  'ItemId':'B0006',  'ItemName':'礼品',  'Status':'是'},{  'Id':'8',  'ItemId':'B0007',  'ItemName':'青椒皮蛋',  'Status':'是'},{  'Id':'9',  'ItemId':'B0008',  'ItemName':'茉莉花茶',  'Status':'是'},{  'Id':'10',  'ItemId':'B0009',  'ItemName':'小汤匙',  'Status':'是'},{  'Id':'11',  'ItemId':'B0010',  'ItemName':'小布丁',  'Status':'是'}]">
+	<tr>
+		<th>序号</th>
+		<th>兑换品编号</th>
+		<th>兑换品名称</th>
+		<th>状态</th>
+		<th>操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td>{{$index}}</td>
+		<td>{{item.ItemId}}</td>
+		<td>{{item.ItemName}}</td>
+		<td>{{item.Status}}</td>
+		<td>
+			<p class="link">删除</p>
+			<p class="link">编辑</p>
+			<p class="link">兑换品授权级别</p>
+		</td>
+	</tr>
+</table>

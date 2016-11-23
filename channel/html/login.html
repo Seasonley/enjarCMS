@@ -1,0 +1,47 @@
+<header class="topbar">
+	<span class="nav">渠道系统 > 登录页面</span>
+</header>
+<div class="cox text_align_center">
+		<div class="clear float_mid" style="height: 50px;"></div>
+	<form name="form" ng-submit="login(form.$valid)">
+	<table class="no_table_border float_mid w7x">
+	<tr>
+		<td class="text_align_right" width="100px">
+			<p class="tip">*登录账号：</p>
+		</td>
+		<td>
+			<input type="text" name="code" ng-model="user.code"  required />
+			<p class="tip c_warning" ng-show="form.code.$invalid&&form.code.$dirty"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">
+			<p class="tip">*登录密码：</p>
+		</td>
+		<td>
+			<input type="password" name="password" ng-model="user.password"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.password.$invalid&&form.password.$dirty"><i class="fa fa-fw fa-warning"></i>密码不为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<!--财务<br>enjarfd001<br>fd001<br>
+			渠道总监<br>enjarcsd001<br>csd001<br>
+			渠道经理<br>enjarcsm001<br>csm001<br>-->
+		
+		</td>
+		</td>
+		<td>
+	</tr>
+	<tr>
+		</td>
+		<td>
+		<td>
+			<input type="submit" class="btn" ng-class="{active:!form.$invalid}" value="立即登录"/>
+			<div class="btn" onclick="alert('请联系管理员！')">忘记密码</div>
+		</td>
+	</tr>
+	</table>
+
+	<div class="clear float_mid" style="height: 50px;"></div>
+</div>

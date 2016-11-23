@@ -1,0 +1,29 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 口味设定</span>
+</header>
+<div class="box mc_header">
+	口味设定
+</div>
+<div class="box mc_header" style="background: rgba(31, 171, 201,0.5);">
+	<div class="btn active">口味类别主档管理</div>
+	<div class="btn">口味主档管理</div>
+</div>
+
+<table class="zebra"ng-init="mylist=[{  'Id':'1',  'TypeNum':'201300000001',  'TypeName':'糖分'},{  'Id':'2',  'TypeNum':'201300000002',  'TypeName':'冰度'},{  'Id':'3',  'TypeNum':'201300000003',  'TypeName':'温度'},{  'Id':'4',  'TypeNum':'201300000004',  'TypeName':'咸度'},{  'Id':'5',  'TypeNum':'201300000005',  'TypeName':'zxz'},{  'Id':'6',  'TypeNum':'201300000006',  'TypeName':'熟度'},{  'Id':'7',  'TypeNum':'201300000008',  'TypeName':'甜'},{  'Id':'8',  'TypeNum':'201300000008',  'TypeName':'123'},{  'Id':'9',  'TypeNum':'201300000009',  'TypeName':'酸'},{  'Id':'10',  'TypeNum':'201300000010',  'TypeName':'tang'},{  'Id':'11',  'TypeNum':'201300000011',  'TypeName':'kkk'},{  'Id':'12',  'TypeNum':'201300000012',  'TypeName':'辣度'}]">
+	<tr>
+		<th>序号</th>
+		<th>口味类别编号</th>
+		<th>口味类别名称</th>
+		<th>操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td>{{$index}}</td>
+		<td>{{item.TypeNum}}</td>
+		<td>{{item.TypeName}}</td>
+		<td>
+			<p class="link">删除</p>
+			<p class="link">编辑</p>
+			<p class="link">添加口味</p>
+		</td>
+	</tr>
+</table>

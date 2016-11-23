@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "account": "123",
+    "name": "demo",
+    "identity": "确认员",
+    "post": "",
+    "type": "收银员",
+    "state": "正常",
+    "time": "2014-10-23 12:14:02"
+  },
+  {
+    "id": 2,
+    "account": "enjar",
+    "name": "enjar",
+    "identity": "管理员",
+    "post": "",
+    "type": "收银员",
+    "state": "正常",
+    "time": "2014-10-23 12:14:02"
+  },
+  {
+    "id": 3,
+    "account": "letitia",
+    "name": "letitia",
+    "identity": "确认员",
+    "post": "",
+    "type": "收银员",
+    "state": "正常",
+    "time": "2014-10-23 12:14:02"
+  },
+  {
+    "id": 4,
+    "account": "wu",
+    "name": "吴顾问",
+    "identity": "确认员",
+    "post": "",
+    "type": "收银员",
+    "state": "正常",
+    "time": "2014-10-23 12:14:02"
+  }
+]

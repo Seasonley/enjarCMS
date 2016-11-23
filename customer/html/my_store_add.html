@@ -1,0 +1,78 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 新增门店</span>
+</header>
+
+<form name="form" ng-submit="FormUpdate(!!user.city&&form.$valid)">
+	<table class="cirgle">
+	<tr>
+		<td colspan="3" class="mc_header">新增门店</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">经销商编号：</td>
+		<td>
+			<input type="text" name="dis_name" ng-model="user.dis_name"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.dis_name.$invalid&&form.dis_name.$dirty"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">门店名称：</td>
+		<td>
+			<input type="text" name="center_name" ng-model="user.center_name"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.center_name.$invalid&&form.center_name.$dirty"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">区域：</td>
+		<td>
+			<select name="area" ng-model="user.area" >
+				<option value="">（请选择）</option>
+				<option value="hb">华北</option>
+				<option value="db">东北</option>
+				<option value="hd">华东</option>
+				<option value="hz">华中</option>
+				<option value="hn">华南</option>
+				<option value="xn">西南</option>
+				<option value="xb">西北</option>
+				<option value="oo">其他</option>
+			</select>
+			<p class="tip c_warning" ng-show="!user.area&&form.area.$dirty"><i class="fa fa-warning"></i>请选择</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">总部所在地：</td>
+		<td>
+			<select name="province" ng-model="user.province" ng-options="CityData.label for CityData in CityData | filter: {area: user.area}">
+				<option value="">（请选择）</option>
+			</select>
+			<select name="city" ng-model="user.city" ng-options="province.label for province in user.province.cities">
+				<option value="">（请选择）</option>
+			</select>
+			<p class="tip c_warning" ng-show="!user.city&&form.city.$dirty"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">门店地址：</td>
+		<td>
+			<input type="text" name="address" ng-model="user.address" required/>
+			<p class="tip c_warning" ng-show="!user.address&&form.address.$dirty"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">门店电话：</td>
+		<td>
+			<input type="text" name="tel" ng-model="user.tel" required/>
+			<p class="tip c_warning" ng-show="!user.tel&&form.tel.$dirty"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td><td></td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td>
+		<td>
+			<input type="submit" class="btn" ng-class="{active:!!user.city&&form.$valid}" value="确认"/>
+			<input type="reset"  class="btn active" value="重置"/>
+		</td>
+	</tr>
+	</table>
+</form>

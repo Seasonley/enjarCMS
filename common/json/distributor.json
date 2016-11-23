@@ -1,0 +1,67 @@
+[
+  {
+    "name": "朋利来管理有限公司",
+    "code": "DS00001",
+    "area": "hd",
+    "province": "江苏",
+    "city": "苏州",
+    "kpi": 20,
+    "contect": "王一山",
+    "tel": 13818888888,
+    "password": 123456,
+    "mail": "a@enjar.cn",
+    "manager": "王海松"
+  },
+  {
+    "name": "a管理有限公司",
+    "code": "DS00002",
+    "area": "hn",
+    "province": "广东",
+    "city": "江门",
+    "kpi": 30,
+    "contect": "王二山",
+    "tel": 13812222222,
+    "password": 123456,
+    "mail": "b@enjar.cn",
+    "manager": "朱海松"
+  },
+  {
+    "name": "c管理有限公司",
+    "code": "DS00003",
+    "area": "hd",
+    "province": "江苏",
+    "city": "南京",
+    "kpi": 40,
+    "contect": "王三山",
+    "tel": 13813333333,
+    "password": 123456,
+    "mail": "c@enjar.cn",
+    "manager": "令海松"
+  },
+  {
+    "name": "d管理有限公司",
+    "code": "DS00004",
+    "area": "hd",
+    "province": "江苏",
+    "city": "无锡",
+    "kpi": 50,
+    "contect": "王四山",
+    "tel": 13818888899,
+    "password": 123456,
+    "mail": "d@enjar.cn",
+    "manager": "定海松"
+  },
+  {
+    "name": "e管理有限公司",
+    "code": "DS00005",
+    "area": "hd",
+    "province": "江苏",
+    "city": "昆山",
+    "kpi": 40,
+    "contect": "王五山",
+    "tel": 13818888833,
+    "password": 123456,
+    "mail": "e@enjar.cn",
+    "manager": "相海松"
+  }
+]

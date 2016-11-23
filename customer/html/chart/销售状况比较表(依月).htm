@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+
+		
+		<style type="text/css">
+#container {
+	min-width: 300px;
+	max-width: 600px;
+	margin: 0 auto;
+}
+		</style>
+		<script type="text/javascript">
+$(function () {
+    var data = {
+        "鲜活健康": {
+            "冬瓜茶 (大)": {
+                "一月": "3120",
+                "二月": "2180",
+                "三月": "2240"
+            },
+            "冬瓜茶 (中)": {
+                "一月": "2190",
+                "二月": "3080",
+                "三月": "3110"
+            },
+            "冬瓜嫩仙草 (大)": {
+                "一月": "4154",
+                "二月": "3238",
+                "三月": "4266"
+            },
+            "冬瓜嫩仙草 (中)": {
+                "一月": "2121",
+                "二月": "3187",
+                "三月": "2209"
+            },
+            "冬瓜柠檬 (大)": {
+                "一月": "4165",
+                "二月": "3255",
+                "三月": "4285"
+            },
+            "冬瓜柠檬 (中)": {
+                "一月": "2132",
+                "二月": "2204",
+                "三月": "3228"
+            }
+        },
+        "鲜奶拿铁": {
+        	"铁观音拿铁": {
+                "一月": "6480",
+                "二月": "5360",
+                "三月": "4456"
+            },
+        	"红茶拿铁": {
+                "一月": "6400",
+                "二月": "5300",
+                "三月": "4380"
+            },
+        	"烤茶拿铁": {
+                "一月": "6420",
+                "二月": "5315",
+                "三月": "4399"
+            },     
+        	"抹茶拿铁": {
+                "一月": "6440",
+                "二月": "5330",
+                "三月": "4418"
+            }, 
+        	"仙草冻拿铁": {
+                "一月": "3424",
+                "二月": "3518",
+                "三月": "3128"
+            },
+        	"珍珠鲜奶茶": {
+                "一月": "6468",
+                "二月": "5498",
+                "三月": "5596"
+            }                                          
+        },
+        "新鲜特调": {
+        	"梅子绿茶": {
+                "一月": "2170",
+                "二月": "2256",
+                "三月": "2146"
+            },
+        	"蜂蜜绿茶": {
+                "一月": "2192",
+                "二月": "3246",
+                "三月": "2152"
+            },
+        	"百香绿茶": {
+                "一月": "2146",
+                "二月": "3242",
+                "三月": "2234"
+            },     
+        	"柠檬绿茶": {
+                "一月": "3168",
+                "二月": "2612",
+                "三月": "2208"
+            }, 
+        	"柠檬青茶": {
+                "一月": "2108",
+                "二月": "3122",
+                "三月": "2134"
+            },
+        	"土芒果绿茶": {
+                "一月": "988",
+                "二月": "894",
+                "三月": "1024"
+            },
+        	"甘蔗青茶": {
+                "一月": "3908",
+                "二月": "4812",
+                "三月": "5268"
+            },
+        	"多多绿茶": {
+                "一月": "5702",
+                "二月": "5298",
+                "三月": "6204"
+            },
+        	"青酿梅绿": {
+                "一月": "1098",
+                "二月": "1604",
+                "三月": "976"
+            },
+        	"葡萄柚绿茶": {
+                "一月": "5194",
+                "二月": "4254",
+                "三月": "4396"
+            }                                              
+        },  
+        "夏季冰钻": {
+        	"翡翠柠檬": {
+                "一月": "7906",
+                "二月": "6608",
+                "三月": "7456"
+            },
+        	"翡翠菠萝": {
+                "一月": "2106",
+                "二月": "2208",
+                "三月": "2156"
+            },
+        	"桂花乌梅冰钻": {
+                "一月": "1196",
+                "二月": "1268",
+                "三月": "1046"
+            }                                        
+        },
+        "东方时尚": {
+        	"东方美人": {
+                "一月": "5288",
+                "二月": "4292",
+                "三月": "5168"
+            },
+            "阿里山金萱": {
+                "一月": "4192",
+                "二月": "5274",
+                "三月": "4532"
+            },
+            "安溪铁观音": {
+                "一月": "5192",
+                "二月": "4274",
+                "三月": "4832"                                        
+        }        
+            }, 
+        "香醇奶茶": {
+        	"台北迎嘉珍奶": {
+                "一月": "7788",
+                "二月": "8362",
+                "三月": "7688"
+            },
+        	"台北迎嘉奶茶": {
+                "一月": "5288",
+                "二月": "4162",
+                "三月": "5888"
+            },
+        	"台北迎嘉奶绿": {
+                "一月": "3128",
+                "二月": "4032",
+                "三月": "4248",
+            }                                     
+        }                   
+    },
+        points = [],
+        region_p,
+        region_val,
+        region_i,
+        country_p,
+        country_i,
+        cause_p,
+        cause_i,
+        cause_name = [],
+        region,
+        country,
+        cause;
+    cause_name['一月'] = '一月';
+    cause_name['二月'] = '二月';
+    cause_name['三月'] = '三月';
+    region_i = 0;
+    for (region in data) {
+        if (data.hasOwnProperty(region)) {
+            region_val = 0;
+            region_p = {
+                id: "id_" + region_i,
+                name: region,
+                color: Highcharts.getOptions().colors[region_i]
+            };
+            country_i = 0;
+            for (country in data[region]) {
+                if (data[region].hasOwnProperty(country)) {
+                    country_p = {
+                        id: region_p.id + "_" + country_i,
+                        name: country,
+                        parent: region_p.id
+                    };
+                    points.push(country_p);
+                    cause_i = 0;
+                    for (cause in data[region][country]) {
+                        if (data[region][country].hasOwnProperty(cause)) {
+                            cause_p = {
+                                id: country_p.id + "_" + cause_i,
+                                name: cause_name[cause],
+                                parent: country_p.id,
+                                value: Math.round(+data[region][country][cause])
+                            };
+                            region_val += cause_p.value;
+                            points.push(cause_p);
+                            cause_i = cause_i + 1;
+                        }
+                    }
+                    country_i = country_i + 1;
+                }
+            }
+            region_p.value = Math.round(region_val / country_i);
+            points.push(region_p);
+            region_i = region_i + 1;
+        }
+    }
+    $('#container').highcharts({
+        series: [{
+            type: "treemap",
+            layoutAlgorithm: 'squarified',
+            allowDrillToNode: true,
+            dataLabels: {
+                enabled: false
+            },
+            levelIsConstant: false,
+            levels: [{
+                level: 1,
+                dataLabels: {
+                    enabled: true
+                },
+                borderWidth: 3
+            }],
+            data: points
+        }],
+        subtitle: {
+        	text: '销售金额比较',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        	},
+        title: {
+            text: '销售状况比较表(依月)',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+    });
+});
+		</script>
+	</head>
+	<body>
+<script src="../../../frameworks/highcharts/js/highcharts.js"></script>
+<script src="../../../frameworks/highcharts/js/modules/heatmap.js"></script>
+<script src="../../../frameworks/highcharts/js/modules/treemap.js"></script>
+<div id="container"></div>
+	</body>
+</html>

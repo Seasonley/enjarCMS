@@ -1,0 +1,56 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 新增渠道经理账号</span>
+</header>
+
+	<form name="form" ng-submit="register(!!user.city&&form.$valid)">
+	<table class="cirgle">
+	<tr>
+		<td colspan="3" class="mc_header">新增渠道经理账号</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">*渠道经理账号：</td>
+		<td>
+			<input type="text" name="macount" ng-model="user.macount"  required/>
+			<p class="tip c_warning" ng-show="form.macount.$invalid&&form.macount.$dirty"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">*渠道经理密码：</td>
+		<td>
+			<input type="password" name="password" ng-model="user.password"  value=""  required/>
+				<p class="tip c_error" ng-show="user.password&&user.password.length<=6"></i>强度：弱 ███</p>
+				<p class="tip c_warning" ng-show="user.password.length>6&&user.password.length<=12"></i>强度：中 ██████</p>
+				<p class="tip c_success"  ng-show="user.password.length>12"></i>强度：强 █████████</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">*所属区域 & 省份：</td>
+		<td>
+			<select name="province" ng-model="user.province" ng-options="CityData.label for CityData in CityData"  required>
+				<option value="">（请选择）</option>
+			</select>
+			<select name="city" ng-model="user.city" ng-options="province.label for province in user.province.cities" required>
+				<option value="">（请选择）</option>
+			</select>
+			<p class="tip c_warning" ng-show="form.city.$invalid&&form.city.$dirty"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">*姓名：</td>
+		<td>
+			<input type="text" name="name" ng-model="user.name"  required/>
+			<p class="tip c_warning" ng-show="form.name.$invalid&&form.name.$dirty"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td><td></td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td>
+		<td>
+				<input type="submit" class="btn" ng-class="{active:!!user.city&&form.$valid}" value="确认"/>
+				<input type="reset" class="btn active"  value="重置" />
+		</td>
+	</tr>
+	</table>
+	</form>

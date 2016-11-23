@@ -1,0 +1,27 @@
+<header class="topbar">
+	<span class="nav">渠道系统 > 报表管理 > 商户充值报表</span>
+</header>
+<div class="box mc_header">
+	商户充值报表
+</div>
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>总部注册名称</th>
+		<th>总部所在地</th>
+		<th>经销商名称</th>
+		<th>充值日期</th>
+		<th>充值金额</th>
+	</tr>
+	<tr ng-repeat="item in ReportCharge.list">
+		<td>{{item.hname}}</td>
+		<td>{{item.adress}}</td>
+		<td>{{item.sname}}</td>
+		<td>{{item.time}}</td>
+		<td>{{item.in}}</td>
+	</tr>
+</table>
+
+
+
+
+

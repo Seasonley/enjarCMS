@@ -1,0 +1,97 @@
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '门店营运报表',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+        xAxis: {
+            categories: ['北京店','上海店','廣州店','深圳店','重庆店']
+        },
+        yAxis: [{
+            min: 0,
+            title: {
+                text: '销售金额',
+                style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+            }
+        }, {
+            title: {
+                text: '杯数/账单数',
+                style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+            },
+            opposite: true
+        }],
+        legend: {
+            shadow: false
+        },
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                grouping: false,
+                shadow: false,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: '总营业额',
+            color: '#63ff15',
+            data: [166899, 158402, 139083, 170310,109382],
+            pointPadding: 0.3,
+            pointPlacement: -0.2,
+            tooltip: {
+                valueSuffix: ' 元'
+            },
+        }, {
+            name: '净营业额',
+            color: '#ff7fff',
+            data: [160123, 153721, 134021, 165123,100124],
+            pointPadding: 0.4,
+            pointPlacement: -0.2,
+            tooltip: {
+                valueSuffix: ' 元'
+            },
+        }, {
+            name: '总杯数',
+            color: '#6ac3ff',
+            data: [9616, 8831, 7026, 10214, 5403],
+            tooltip: {
+                valueSuffix: ' 杯'
+            },
+            pointPadding: 0.3,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }, {
+            name: '总账单数',
+            color: '#ffe855',
+            data: [5388, 4918, 3812, 5931, 2301],
+            tooltip: {
+                valueSuffix: ' 单'
+            },
+            pointPadding: 0.4,
+            pointPlacement: 0.2,
+            yAxis: 1
+        }]
+    });
+});
+		</script><div id="container" style="min-width: 400px; height: 600px; margin: 0 auto"></div>

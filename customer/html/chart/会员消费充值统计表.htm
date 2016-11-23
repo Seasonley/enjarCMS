@@ -1,0 +1,92 @@
+
+<script type="text/javascript">
+// Data gathered from http://populationpyramid.net/germany/2015/
+$(function () {
+    // Age categories
+    var categories = ['北京店','上海店','廣州店','深圳店','重庆店'];
+    $(document).ready(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: '会员消费充值统计表',
+                style: { 
+                    fontWeight: 'bold',
+                    fontSize: '24px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+            },
+            xAxis: [{
+                categories: categories,
+                reversed: false,
+                labels: {
+                    step: 1,
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+            }, { // mirror axis on right side
+                opposite: true,
+                reversed: false,
+                categories: categories,
+                linkedTo: 0,
+                labels: {
+                    step: 1,
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+            }],
+            yAxis: {
+                title: {
+                    text: null
+                },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '元';
+                    },
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+            },
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+
+            tooltip: {
+                formatter: function () {
+                    return '<b>' + this.series.name + ' : ' + this.point.category + '</b><br/>' +
+                        '共: ' + Highcharts.numberFormat(Math.abs(this.point.y), 0) + '元';
+                },
+                    style: { 
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+            },
+
+            series: [{
+                name: '充值总额',
+                data: [-5000,-3500,-2000,-2500,-1000],
+                color:'#ff0000'
+            }, {
+                name: '消费总额',
+                data: [3979,3041,2794,2921,508],
+                color:'#72ff15'
+            }]
+        });
+    });
+
+});
+		</script><div id="container" style="min-width: 310px; max-width: 1200px; height: 500px; margin: 0 auto"></div>

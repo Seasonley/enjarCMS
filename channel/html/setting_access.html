@@ -1,0 +1,71 @@
+<header class="topbar">
+	<span class="nav">渠道系统 > 系统管理 > 系统权限</span>
+</header>
+<div class="box mc_header">
+	系统权限
+</div>
+<div class="box h1x">
+	<p class="tip">姓名：</p>
+	<select>
+		<option value="1">王海松</option>
+		<option value="2">任海松</option>
+		<option value="3">李海松</option>
+		<option value="4">唐海松</option>
+	</select>
+	<p class="tip">权限区域：</p>
+	<select>
+		<option value="1">华东</option>
+		<option value="2">华南</option>
+		<option value="3">华西</option>
+		<option value="4">华北</option>
+		<option value="5">华中</option>
+	</select>
+	<div class="btn" onclick="alert('提交成功')" >新增</div>
+	
+</div>
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>姓名</th>
+		<th>权限区域</th>
+		<th width="105px">操作</th>
+	</tr>
+	<tr ng-repeat="item in Account.list">
+		<td>{{item.name}}</td>
+		<td>{{item.area}}</td>
+		<td>
+			<div class="link" ng-click="Account.edit($index,'w_edit')">编辑</div>
+			<div class="link" onclick="$(this).parent().parent().remove()">删除</div>
+		</td>
+	</tr>
+</table>
+
+<div class="window" id="w_edit" onmouseenter="init_window()">
+    <header>
+        <p>编辑权限</p>
+        <button class="close_btn">×</button>
+    </header>
+    <div class="window_main" >
+        <form>
+        	<table class="no_table_border">
+        		<tr><td><input type="text" value="任海松" /></td></tr>
+        		<tr>
+            		<td>
+            			<select name="" style="width: calc(100% - 10px);">
+							<option value="">（请选择）</option>
+							<option value="">华东</option>
+							<option value="">华南</option>
+							<option value="">华西</option>
+							<option value="">华北</option>
+							<option value="">华中</option>
+						</select>
+            		</td>
+        		</tr>
+        		<tr><td><div class="btn" onclick="alert('提交成功');$('#w_edit').hide()">确定</div></td></tr>
+        	</table>
+        </form>
+    </div>
+</div>
+
+
+
+

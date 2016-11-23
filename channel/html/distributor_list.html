@@ -1,0 +1,152 @@
+<header class="topbar">
+	<span class="nav">渠道系统 > 经销商列表</span>
+</header>
+<div class="box mc_header">
+	经销商列表
+</div>
+<div class="box h1x">
+	<p class="tip">按名称：</p>
+	<input type="text" ng-model="Search.name" class="w2x"/>
+	<p class="tip">经销商代码：</p>
+	<input type="text" ng-model="Search.code" class="w2x"/>
+	<div class="btn" ng-click="Search={}">清空</div>
+	<div class="btn right" ui-sref="manage.distributor_add">新增</div>
+</div>
+<i class="line b_mca"></i>
+<div class="clear" style="height:20px;"></div>
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>经销商名称</th>
+		<th>经销商代码</th>
+		<th>所属区域</th>
+		<th>省份</th>
+		<th>城市</th>
+		<th>年度KPI设定</th>
+		<th>联系人</th>
+		<th>联系电话</th>
+		<th>电子邮件</th>
+		<th>渠道经理</th>
+		<th>密码</th>
+		<th width="110px">操作</th>
+	</tr>
+	<tr ng-repeat="item in Distributor.list |filter:{name:Search.name}|filter:{code:Search.code}">
+		<td>{{item.name}}</td>
+		<td>{{item.code}}</td>
+		<td>{{item.area}}</td>
+		<td>{{item.province}}</td>
+		<td>{{item.city}}</td>
+		<td>{{item.KPI}}</td>
+		<td>{{item.contect}}</td>
+		<td>{{item.tel}}</td>
+		<td>{{item.mail}}</td>
+		<td>{{item.manager}}</td>
+		<td><div class="link" onclick="alert('发送成功')">发送</div></td>
+		<td>
+			<div class="link" ng-click="Distributor.edit($index,'w_edit')">编辑</div>
+			<div class="link" onclick="$(this).parent().parent().remove()">删除</div>
+		</td>
+	</tr>
+</table>
+
+<div class="window" id="w_edit" onmouseenter="init_window()">
+    <header>
+        <p>编辑经销商</p>
+        <button class="close_btn">×</button>
+    </header>
+    <div class="window_main" >
+        <form name="form" ng-submit="register(!!distributor.city&&form.$valid)">
+	<table class="no_table_border">
+	<tr>
+		<td class="text_align_right" width="150px">经销商名称：</td>
+		<td>
+			<input type="text" name="name" ng-model="distributor.name"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.name.$invalid"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+		<td class="text_align_right" width="150px">经销商代码：</td>
+		<td>
+			<input type="text" name="code" ng-model="distributor.code"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.code.$invalid"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">区域：</td>
+		<td>
+			<select name="area" ng-model="distributor.area" >
+				<option value="">（请选择）</option>
+				<option value="hb">华北</option>
+				<option value="db">东北</option>
+				<option value="hd">华东</option>
+				<option value="hz">华中</option>
+				<option value="hn">华南</option>
+				<option value="xn">西南</option>
+				<option value="xb">西北</option>
+				<option value="oo">其他</option>
+			</select>
+			<p class="tip c_warning" ng-show="!distributor.area"><i class="fa fa-warning"></i>请选择</p>
+		</td>
+		<td class="text_align_right" width="150px">省份：</td>
+		<td>
+			<select name="province" ng-model="distributor.province1" ng-options="CityData.label for CityData in CityData | filter: {area: distributor.area}">
+				<option value="">（请选择）</option>
+			</select>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">所属城市：</td>
+		<td>
+			<select name="city" ng-model="distributor.city" ng-value="distributor.city.label" ng-options="province.label for province in distributor.province1.cities">
+				<option value="">（请选择）</option>
+			</select>
+			<p class="tip c_warning" ng-show="!distributor.city"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+		<td class="text_align_right" width="150px">年度KPI设定：</td>
+		<td>
+			<input type="number" name="kpi" ng-model="distributor.kpi"  value=""  required />
+			<p class="tip c_warning" ng-show="form.kpi.$invalid&&form.kpi.$dirty"><i class="fa fa-warning"></i>请输入正确的数字</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">联系人：</td>
+		<td>
+			<input type="text" name="contect" ng-model="distributor.contect"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.contect.$invalid"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+		<td class="text_align_right" width="150px">联系电话：</td>
+		<td>
+			<input type="text" name="tel" ng-model="distributor.tel"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.tel.$invalid"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="150px">电子邮件：</td>
+		<td>
+			<input type="email" name="mail" ng-model="distributor.mail"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.mail.$invalid"><i class="fa fa-warning"></i>请输入正确的邮箱地址</p>
+		</td>
+		<td class="text_align_right" width="150px">渠道经理：</td>
+		<td>
+			<input type="text" name="manager" ng-model="distributor.manager"  value=""  required/>
+			<p class="tip c_warning" ng-show="form.manager.$invalid"><i class="fa fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td><td></td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td>
+		<td></td>
+		<td class="w4x">
+			<input type="submit" class="btn" ng-class="{active:!!distributor.city&&form.$valid}" value="确认"/>
+			<input type="reset"  class="btn active" value="重置"/>
+		</td>
+		<td></td>
+	</tr>
+	</table>
+</form>
+
+    </div>
+</div>
+
+
+
+

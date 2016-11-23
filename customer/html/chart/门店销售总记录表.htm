@@ -1,0 +1,97 @@
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+
+        chart: {
+            type: 'column'
+        },
+
+        title: {
+            text: '门店销售总记录表',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+
+        xAxis: {
+            categories: ['北京店','上海店','廣州店','深圳店','重庆店']
+        },
+
+        yAxis: {
+            allowDecimals: false,
+            min: 0,
+            title: {
+            text: '销售金额',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+                labels: {
+                    formatter: function () {
+                        return Math.abs(this.value) + '元';
+                    },
+                    style: { 
+                    fontSize: '12px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+                }
+        },
+
+        tooltip: {
+            formatter: function () {
+                return '<b>' + this.x + '</b><br/>' +
+                    this.series.name + ': ' + this.y + '元' + '<br/>' +
+                    'Total: ' + this.point.stackTotal+ '元';
+            }
+        },
+
+        plotOptions: {
+            column: {
+                stacking: 'normal'
+            }
+        },
+
+        series: [{
+            name: '1/4销售总额',
+            data: [9527, 8068, 9123, 6848, 7777],
+            stack: '销售总额'
+        },{
+            name: '1/3销售总额',
+            data: [9063, 7712, 9437, 7002, 7419],
+            stack: '销售总额'
+        },{
+            name: '1/2销售总额',
+            data: [9763, 8213, 8788, 5908, 6452],
+            stack: '销售总额'
+        }, {
+            name: '1/1销售总额',
+            data: [11020, 9023, 10309, 8892, 8068],
+            stack: '销售总额'
+        }, {
+            name: '1/4销售净额',
+            data: [9372, 7877, 8902, 6543, 7665],
+            stack: '销售净额'
+        },{
+            name: '1/3销售净额',
+            data: [8921, 7424, 9231, 6995, 7278],
+            stack: '销售净额'
+        },{
+            name: '1/2销售净额',
+            data: [9527, 8088, 8543, 5809, 6312],
+            stack: '销售净额'
+        }, {
+            name: '1/1销售净额',
+            data: [10012, 8821, 9562, 8742, 7829],
+            stack: '销售净额'
+        }]
+    });
+});
+</script>
+<div id="container" style="min-width: 310px; height: 600px; margin: 0 auto"></div>

@@ -1,0 +1,34 @@
+[
+  {
+    "macount": "CS0001",
+    "mpwd": "12345678",
+    "phone":13888888888,
+    "name": "王海松",
+    "area": "华东",
+    "province": "江苏"
+  },
+  {
+    "macount": "CS0002",
+    "mpwd": "12345678",
+    "phone":13888888888,
+    "name": "任海松",
+    "area": "华中",
+    "province": "湖北"
+  },
+  {
+    "macount": "CS0003",
+    "mpwd": "12345678",
+    "phone":13888888888,
+    "name": "李海松",
+    "area": "华南",
+    "province": "广东"
+  },
+  {
+    "macount": "CS0004",
+    "mpwd": "12345678",
+    "phone":13888888888,
+    "name": "唐海松",
+    "area": "华东",
+    "province": "浙江"
+  }
+]

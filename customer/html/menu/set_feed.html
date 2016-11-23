@@ -1,0 +1,30 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 加料设定</span>
+</header>
+<div class="box mc_header">
+	加料设定
+</div>
+
+<div class="box mc_header" style="background: rgba(31, 171, 201,0.5);">
+	<div class="btn active">料品类别主档管理</div>
+	<div class="btn">料品主档管理</div>
+</div>
+
+<table class="zebra"ng-init="mylist=[{  'Id':'1',  'TypeNum':'201300000001',  'TypeName':'波霸料品'},{  'Id':'2',  'TypeNum':'201300000002',  'TypeName':'珍珠料品'},{  'Id':'3',  'TypeNum':'201300000003',  'TypeName':'椰果料品'},{  'Id':'4',  'TypeNum':'201300000004',  'TypeName':'仙草料品'},{  'Id':'5',  'TypeNum':'201300000005',  'TypeName':'布丁料品'},{  'Id':'6',  'TypeNum':'201300000006',  'TypeName':'养乐多料品'}]">
+	<tr>
+		<th>序号</th>
+		<th>料品类别编号</th>
+		<th>料品类别名称</th>
+		<th>操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td>{{$index}}</td>
+		<td>{{item.TypeNum}}</td>
+		<td>{{item.TypeName}}</td>
+		<td>
+			<p class="link">删除</p>
+			<p class="link">编辑</p>
+			<p class="link">添加料品</p>
+		</td>
+	</tr>
+</table>

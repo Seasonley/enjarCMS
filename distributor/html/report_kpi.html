@@ -1,0 +1,25 @@
+<header class="topbar">
+	<span class="nav">经销商管理系統 > 报表管理 >经销商KPI报表</span>
+</header>
+<div class="box mc_header">
+	经销商KPI报表
+</div>
+<table border="" cellspacing="" cellpadding="" class="zebra">
+	<tr>
+		<th>月份</th>
+		<th>KPI</th>
+		<th>实际达成</th>
+		<th>达成比例</th>
+	</tr>
+	<tr ng-repeat="item in ReportKPI.list">
+		<td>{{item.month}}</td>
+		<td>{{item.KPI}}</td>
+		<td>{{item.success}}</td>
+		<td>{{item.proportion}}</td>
+	</tr>
+</table>
+
+
+
+
+

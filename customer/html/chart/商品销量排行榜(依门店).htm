@@ -1,0 +1,103 @@
+
+<script type="text/javascript">
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            zoomType: 'xy'
+        },
+        title: {
+            text: '商品销量排行榜(依门店)',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }
+        },
+        subtitle: {
+        	text: '前5大门店销量排行',
+            style: { 
+                    fontWeight: 'bold',
+                    fontSize: '16px', 
+                    fontFamily: '微軟正黑體',
+                    color:'black'
+                   }},
+        xAxis: [{
+            categories: ['北京店','上海店','廣州店','深圳店','重庆店'],
+            crosshair: true
+        }],
+        yAxis: [{ // Secondary yAxis
+            title: {
+                text: '销售量',
+                style: {
+                    fontWeight: 'bold',
+                    color: '#55bbff',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            labels: {
+                format: '{value} 杯',
+                style: {
+                    color: '#55bbff',
+                    fontSize: '15px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            opposite: true
+        },{ // Primary yAxis
+            labels: {
+                format: '{value} 元',
+                style: {
+                    color: '#ff3f3f',
+                    fontSize: '15px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },
+            title: {
+                text: '销售金额',
+                style: {
+                    fontWeight: 'bold',
+                    color: '#ff3f3f',
+                    fontSize: '20px', 
+                    fontFamily: '微軟正黑體'
+                }
+            },min:10000
+        }],
+        tooltip: {
+            shared: true
+        },
+        plotOptions: {
+            column: {
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'black',
+                    style: {
+                           textShadow: '0 0 3px white',
+                           fontSize: '18px', 
+                           fontFamily: '微軟正黑體'
+                    }
+                }
+            }
+        },
+        series: [{
+            name: '销售金额',
+            type: 'column',
+            yAxis: 1,
+            data: [22488,20956,18879,17527,16992],
+            tooltip: {
+                valueSuffix: ' 元'
+            },
+            color:'#ff3f3f'
+        }, {
+            name: '销售量',
+            type: 'spline',
+            data: [1873,1768,1699,1720,1662],
+            tooltip: {
+                valueSuffix: ' 杯'
+            },
+            color:'#55bbff'
+        }]
+    });
+});
+		</script><div id="container" style="max-width: 1200px; height: 600px; margin: 0 auto"></div>

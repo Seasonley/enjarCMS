@@ -1,0 +1,76 @@
+<header class="topbar">
+	<span class="nav">经销商管理系統 > 商户信息管理 > 编輯</span>
+</header>
+	<form name="form" ng-submit="register(user)">
+	<table class="cirgle">
+	<tr>
+		<td colspan="3" class="mc_header">商户信息</td>
+	</tr>
+	<tr>
+		<td class="text_align_right" width="200px">总部注册名称：</td>
+		<td>
+			<input type="text" name="hname" ng-model="user.hname" />
+			<p class="tip c_warning" ng-show="user.hname==''"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">总部品牌名称：</td>
+		<td>
+			<input type="text" name="name" ng-model="user.name" />
+			<p class="tip c_warning" ng-show="user.name==''"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">第一年装机价格设定：</td>
+		<td>
+			<input type="text" name="value1" ng-model="user.value1" />
+			<p class="tip c_warning" ng-show="user.value1==''"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">第二年装机价格设定：</td>
+		<td>
+			<input type="text" name="value2" ng-model="user.value2" />
+			<p class="tip c_warning" ng-show="user.value2==''"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">销售负责人：</td>
+		<td>
+			<input type="text" name="charge" ng-model="user.charge" />
+			<p class="tip c_warning" ng-show="user.charge==''"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">负责人电话：</td>
+		<td>
+			<input type="number" name="ctel" ng-model="user.ctel" ng-minlength="11" ng-maax-length="11"/>
+			<p class="tip c_warning" ng-show="form.mtel.$invalid"><i class="fa fa-fw fa-warning"></i>请输入11位手机号</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">系统维护人员：</td>
+		<td>
+			<input type="text" name="maintain" ng-model="user.maintain" />
+			<p class="tip c_warning" ng-show="user.maintain==''"><i class="fa fa-fw fa-warning"></i>不能为空</p>
+		</td>
+	</tr>
+	<tr>
+		<td class="text_align_right">维护人电话：</td>
+		<td>
+			<input type="number" name="mtel" ng-model="user.mtel" ng-minlength="11" ng-maax-length="11"/>
+			<p class="tip c_warning" ng-show="form.mtel.$invalid"><i class="fa fa-fw fa-warning"></i>请输入11位手机号</p>
+		</td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td><td></td>
+	</tr>
+	<tr class="no_table_border">
+		<td></td>
+		<td>
+				<input type="submit" class="btn" ng-class="{active:form.$valid}" value="更改"/>
+				<input type="reset" class="btn" ng-class="{active:form.$dirty}" value="重置"/>
+		</td>
+	</tr>
+	</table>
+	</form>

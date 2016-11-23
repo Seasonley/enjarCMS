@@ -1,0 +1,33 @@
+<header class="topbar">
+	<span class="nav">商户功能页面 > 管理页面 > 收款别维护</span>
+</header>
+<div class="box mc_header">
+	收款别维护
+</div>
+<div class="box h1x">
+	<p class="tip">门店编号：</p>
+	<input type="text" name="cid" ng-model="Search.cid" class="w2x"/>
+	<p class="tip">门店名称：</p>
+	<input type="text" name="name" ng-model="Search.name" class="w2x"/>
+	<div class="btn" ng-click="Search={}">清空</div>
+	<div class="btn" ng-click="Search={}">列出全部</div>
+</div>
+
+<table border="" cellspacing="" cellpadding="" class="zebra" ng-init="mylist=[{  'Id':'1',  'ShopNum':'000012',  'ShopName':'测试2test',  'Adress':'shanghaibaoshan'},{  'Id':'2',  'ShopNum':'001229',  'ShopName':'上海大虾',  'Adress':'adsf'},{  'Id':'3',  'ShopNum':'10000',  'ShopName':'哎呦，不错哦',  'Adress':'福建省厦门市思明区中山路99号'},{  'Id':'4',  'ShopNum':'10000',  'ShopName':'和平客栈',  'Adress':'阿萨德发生的发生的话'}]">
+	<tr>
+		<th>序号</th>
+		<th>门店编号</th>
+		<th>门店名称</th>
+		<th>地址</th>
+		<th width="160px">操作</th>
+	</tr>
+	<tr ng-repeat="item in mylist">
+		<td>{{$index+1}}</td>
+		<td>{{item.ShopNum}}</td>
+		<td>{{item.ShopName}}</td>
+		<td>{{item.Adress}}</td>
+		<td>
+			<div class="link" >自定义收款类别</div>
+		</td>
+	</tr>
+</table>
